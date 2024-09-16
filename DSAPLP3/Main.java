@@ -27,32 +27,53 @@ public class Main {
                 case 1:
                     System.out.println("----------------------");
                     System.out.println();
-                    arrayOperations.createArray();
+                    if (arrayOperations.getSize() == 0) {
+                        arrayOperations.createArray();
+                    } else {
+                        System.out.println("There's already an existing Array.");
+                    }
                     System.out.println();
-
                     break;
                 case 2:
                     System.out.println("----------------------");
                     System.out.println();
-                    arrayOperations.insertElement();
+                    if (arrayOperations.getSize() != 0) {
+                        arrayOperations.insertElement();
+                    } else {
+                        System.out.println("Create an Array first.");
+                    }
+
                     System.out.println();
                     break;
                 case 3:
                     System.out.println("----------------------");
                     System.out.println();
-                    arrayOperations.searchElement();
+                    if (arrayOperations.getSize() != 0) {
+                        arrayOperations.searchElement();
+                    } else {
+                        System.out.println("Create an Array first.");
+                    }
                     System.out.println();
                     break;
                 case 4:
                     System.out.println("----------------------");
                     System.out.println();
-                    arrayOperations.displayArray();
+                    if (arrayOperations.getSize() != 0) {
+                        arrayOperations.displayArray();
+                    } else {
+                        System.out.println("Create an Array first.");
+                    }
+
                     System.out.println();
                     break;
                 case 5:
                     System.out.println("----------------------");
                     System.out.println();
-                    arrayOperations.deleteElement();
+                    if (arrayOperations.getSize() != 0) {
+                        arrayOperations.deleteElement();
+                    } else {
+                        System.out.println("Create an Array first.");
+                    }
                     System.out.println();
                     break;
                 case 0:
