@@ -6,7 +6,6 @@ public class ArrayOperations {
     Scanner scanner = new Scanner(System.in);
     private int[] array = {};
     private int size = 0;
-    private int index = 0;
     private int counter = 0;
 
     public int[] createArray() {
@@ -42,7 +41,6 @@ public class ArrayOperations {
                     break;
                 } else {
                     System.out.println("Invalid Entry.");
-
                 }
 
             }
