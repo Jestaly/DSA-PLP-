@@ -51,9 +51,25 @@ public class ArrayOperations {
         return array;
     }
 
-    public int searchElement() {
+    public void searchElement() {
         System.out.println("searching element.");
-        return 0;
+
+        System.out.println("Search Data: ");
+        int search = scanner.nextInt();
+        boolean searchBool = false;
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] == search) {
+                searchBool = true;
+                break;
+            }
+
+        }
+        if (searchBool == true) {
+            System.out.println(search + " found succesfully!");
+        } else if (searchBool == false) {
+            System.out.println(search + " found unsuccesfully.");
+        }
+
     }
 
     public void displayArray() {
@@ -75,4 +91,5 @@ public class ArrayOperations {
     public int getSize() {
         return size;
     }
+
 }
