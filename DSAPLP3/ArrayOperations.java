@@ -76,7 +76,7 @@ public class ArrayOperations {
     public void displayArray() {
         System.out.println("displaying array.");
         String newLine = "";
-        for (int i = 0; i < array.length; i++) {
+        for (int i = 0; i < tempArray.length; i++) {
             if (i == 4) {
                 newLine = "\n";
             }
@@ -86,7 +86,7 @@ public class ArrayOperations {
             if (i == 14) {
                 newLine = "\n";
             }
-            System.out.print(array[i] + " " + newLine);
+            System.out.print(tempArray[i] + " " + newLine);
             newLine = "";
         }
     }
@@ -99,14 +99,16 @@ public class ArrayOperations {
         int deleteData = scanner.nextInt();
         for (int i = 0; i < array.length; i++) {
             if (array[i] == deleteData) {
-                for (int j = i + 1; j < array.length; j++) {
+                for (int j = i; j < array.length; j++) {
                     temp = array[j];
                     array[j] = array[i];
                     array[i] = temp;
                     if (j == size - 1) {
+                        tempArray = new int[size - 1];
                         for (int k = 0; k < tempArray.length; k++) {
                             tempArray[k] = array[k];
                         }
+
                     }
                 }
             }
