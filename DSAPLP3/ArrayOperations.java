@@ -10,14 +10,19 @@ public class ArrayOperations {
     int[] tempArray = {};
 
     public int[] createArray() {
-        System.out.println("creating array.");
+        System.out.println("Creating Array for you...");
+        System.out.println();
+        System.out.println("----------------------");
         System.out.print("Enter Array size [5-20]: ");
         size = scanner.nextInt();
 
         if (size >= 5 && size <= 20) {
             array = new int[size];
+            System.out.println("----------------------");
+            System.out.println();
             System.out.println("An Array with size of " + "(" + size + ")" + " has been created.");
         } else {
+            System.out.println("----------------------");
             System.out.println("Invalid size.");
             size = 0;
         }
@@ -26,24 +31,33 @@ public class ArrayOperations {
     }
 
     public int[] insertElement() {
+
+        boolean duplicate = false;
+        ;
         if (counter <= 4) {
-            System.out.println("inserting element.");
-
+            System.out.println("Inserting Element/s...");
+            System.out.println();
+            System.out.println("----------------------");
             for (int i = counter; i < array.length; i++) {
-                System.out.println("PRESS [1] TO CONTINUE");
-                System.out.println("PRESS [0] TO GO BACK");
-                int choice_2 = scanner.nextInt();
 
-                if (choice_2 == 1) {
-                    System.out.println("Insert element " + (counter + 1) + ": ");
-                    array[i] = scanner.nextInt();
-                    counter++;
-                } else if (choice_2 == 0) {
+                System.out.print("Insert element " + (counter + 1) + ": ");
+                array[i] = scanner.nextInt();
+                for (int j = 0; j < counter; j++) {
+                    if (array[i] == array[j]) {
+                        duplicate = true;
+                    }
+                }
+                if (array[i] == -99) {
                     break;
-                } else {
-                    System.out.println("Invalid Entry.");
+                }
+                if (duplicate == true) {
+                    System.out.println("----------------------");
+                    System.out.println();
+                    System.out.println("Error. Duplicates Found. Try Again.");
+                    break;
                 }
 
+                counter++;
             }
         } else {
             System.out.println("Array is full.");
@@ -55,7 +69,7 @@ public class ArrayOperations {
     public void searchElement() {
         System.out.println("searching element.");
 
-        System.out.println("Search Data: ");
+        System.out.print("Search Data: ");
         int search = scanner.nextInt();
         boolean searchBool = false;
         for (int i = 0; i < array.length; i++) {
@@ -67,7 +81,7 @@ public class ArrayOperations {
         }
         if (searchBool == true) {
             System.out.println(search + " found succesfully!");
-        } else if (searchBool == false) {
+        } else {
             System.out.println(search + " found unsuccesfully.");
         }
 
