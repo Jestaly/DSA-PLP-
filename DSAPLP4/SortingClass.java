@@ -7,14 +7,18 @@ public class SortingClass {
     }
 
     public int[] bubbleSort(int[] num) {
+        int temp = Integer.MIN_VALUE;
         System.out.println("this a bubble sort.");
-        for (int i = 0; i < num.length; i++) {
-            System.out.println(i);
+        for (int i = 1; i < num.length; i++) {
+            if (num[i - 1] > num[i]) {
+                temp = num[i];
+            }
         }
         return num;
     }
 
     public int[] selectionSort(int[] num) {
+        int temp = 0;
         System.out.println("This is a selection sort.");
         for (int i = 0; i < num.length; i++) {
         }
@@ -22,7 +26,8 @@ public class SortingClass {
     }
 
     public int[] insertionSort(int[] num) {
-        System.out.println("This is a selection sort.");
+        int temp = 0;
+        System.out.println("This is an insertion sort.");
         for (int i = 0; i < num.length; i++) {
 
         }
