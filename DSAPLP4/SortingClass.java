@@ -9,9 +9,13 @@ public class SortingClass {
     public int[] bubbleSort(int[] num) {
         int temp = Integer.MIN_VALUE;
         System.out.println("this a bubble sort.");
-        for (int i = 1; i < num.length; i++) {
-            if (num[i - 1] > num[i]) {
-                temp = num[i];
+        for (int i = 0; i < num.length; i++) {
+            for (int j = 1; j < num.length; j++) {
+                if (num[i] > num[j]) {
+                    temp = num[j];
+                    num[j] = num[i];
+                    num[i] = temp;
+                }
             }
         }
         return num;
