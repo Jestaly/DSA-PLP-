@@ -24,12 +24,26 @@ public class SortingClass {
         return Arrays.toString(num);
     }
 
-    public int[] selectionSort(int[] num) {
-        int temp = 0;
+    public String selectionSort(int[] num) {
+        int temp = Integer.MIN_VALUE;
+        int smallestNum = num[0];
+        int counter = 0;
         System.out.println("This is a selection sort.");
         for (int i = 0; i < num.length; i++) {
+
+            for (int j = i; j < num.length; j++) {
+                if (num[j] < smallestNum) {
+                    counter++;
+                    smallestNum = num[j];
+                }
+            }
+            temp = num[i];
+            num[i] = smallestNum;
+            num[counter] = temp;
+            counter = 0;
+
         }
-        return num;
+        return Arrays.toString(num);
     }
 
     public int[] insertionSort(int[] num) {

@@ -35,7 +35,7 @@ public class Main {
                     System.out.println(sortingClass.bubbleSort(num));
                     break;
                 case 2:
-                    sortingClass.selectionSort(num);
+                    System.out.println(sortingClass.selectionSort(num));
                     break;
                 case 3:
                     sortingClass.insertionSort(num);
