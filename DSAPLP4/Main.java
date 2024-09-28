@@ -32,7 +32,7 @@ public class Main {
 
             switch (choice) {
                 case 1:
-                    sortingClass.bubbleSort(num);
+                    System.out.println(sortingClass.bubbleSort(num));
                     break;
                 case 2:
                     sortingClass.selectionSort(num);

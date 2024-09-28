@@ -1,24 +1,27 @@
 package DSAPLP4;
 
+import java.util.Arrays;
+
 public class SortingClass {
 
     SortingClass() {
 
     }
 
-    public int[] bubbleSort(int[] num) {
+    public String bubbleSort(int[] num) {
         int temp = Integer.MIN_VALUE;
         System.out.println("this a bubble sort.");
         for (int i = 0; i < num.length; i++) {
-            for (int j = 1; j < num.length; j++) {
-                if (num[i] > num[j]) {
+            for (int j = 0; j < num.length; j++) {
+                if (num[j] > num[i]) {
                     temp = num[j];
                     num[j] = num[i];
                     num[i] = temp;
+                    System.out.println(Arrays.toString(num));
                 }
             }
         }
-        return num;
+        return Arrays.toString(num);
     }
 
     public int[] selectionSort(int[] num) {
