@@ -38,7 +38,7 @@ public class Main {
                     System.out.println(sortingClass.selectionSort(num));
                     break;
                 case 3:
-                    sortingClass.insertionSort(num);
+                    System.out.println(sortingClass.insertionSort(num));
                     break;
                 case 4:
                     sortingClass.exit();

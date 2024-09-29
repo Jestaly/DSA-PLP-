@@ -4,51 +4,61 @@ import java.util.Arrays;
 
 public class SortingClass {
 
-    public String bubbleSort(int[] num) {
-        int temp = Integer.MIN_VALUE;
+    private int[] num;
+
+    public int[] bubbleSort(int[] num) {
+
         System.out.println("this a bubble sort.");
-        for (int i = 0; i < num.length; i++) {
-            for (int j = 0; j < num.length; j++) {
-                if (num[j] > num[i]) {
-                    temp = num[j];
-                    num[j] = num[i];
-                    num[i] = temp;
-                    System.out.println(Arrays.toString(num));
+        this.num = num;
+        int temp = Integer.MIN_VALUE;
+        for (int i = 0; i < this.num.length; i++) {
+            for (int j = 0; j < this.num.length; j++) {
+                if (this.num[j] > this.num[i]) {
+                    temp = this.num[j];
+                    this.num[j] = this.num[i];
+                    this.num[i] = temp;
                 }
             }
         }
-        return Arrays.toString(num);
+        return this.num;
     }
 
-    public String selectionSort(int[] num) {
-        int temp = 0;
-        int smallestNum = 0;
-        int position = 0;
+    public int[] selectionSort(int[] num) {
+
         System.out.println("This is a selection sort.");
-        for (int i = 0; i < num.length; i++) {
-            smallestNum = num[i];
-            for (int j = i; j < num.length; j++) {
-                if (num[j] < smallestNum) {
-                    smallestNum = num[j];
+        this.num = num;
+        int temp = Integer.MIN_VALUE;
+        int smallestNum = Integer.MIN_VALUE;
+        int position = Integer.MIN_VALUE;
+        for (int i = 0; i < this.num.length; i++) {
+            @SuppressWarnings("unused")
+            boolean arrayInOrder = true;
+            smallestNum = this.num[i];
+            for (int j = i; j < this.num.length; j++) {
+                if (this.num[j] <= smallestNum) {
+                    smallestNum = this.num[j];
                     position = j;
+                    arrayInOrder = false;
                 }
             }
-            temp = num[i];
-            num[i] = smallestNum;
-            num[position] = temp;
-            System.out.println(Arrays.toString(num));
-
+            if (arrayInOrder = true) {
+                break;
+            }
+            temp = this.num[i];
+            this.num[i] = smallestNum;
+            this.num[position] = temp;
         }
-        return Arrays.toString(num);
+        return this.num;
     }
 
-    public int[] insertionSort(int[] num) {
+    public String insertionSort(int[] num) {
         int temp = 0;
         System.out.println("This is an insertion sort.");
+
         for (int i = 0; i < num.length; i++) {
 
         }
-        return num;
+        return Arrays.toString(num);
     }
 
     public void exit() {
