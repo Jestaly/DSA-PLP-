@@ -9,15 +9,27 @@ public class SortingClass {
         System.out.println("this a bubble sort.");
         int temp = Integer.MIN_VALUE;
         for (int i = 0; i < num.length; i++) {
-            for (int j = 0; j < num.length; j++) {
-                if (num[j] > num[i]) {
+            for (int j = i + 1; j < num.length; j++) {
+                if (num[i] > num[j]) {
                     temp = num[j];
                     num[j] = num[i];
                     num[i] = temp;
                 }
                 System.out.println(Arrays.toString(num));
+
             }
+
         }
+        // for (int i = 0; i < num.length; i++) {
+        // for (int j = i + 1; j < num.length; j++) {
+        // if (num[j] < num[i]) {
+        // temp = num[j];
+        // num[j] = num[i];
+        // num[i] = temp;
+        // }
+        // }
+        // System.out.println(Arrays.toString(num));
+        // }
         return num;
     }
 
