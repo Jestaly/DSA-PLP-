@@ -32,11 +32,11 @@ public class Main {
             int choice = scanner.nextInt();
             switch (choice) {
                 case 1:
-                    System.out.println(Arrays.toString(sortingClass.bubbleSort(num)));
+                    sortingClass.bubbleSort(num);
                     num = numBackUp;
                     break;
                 case 2:
-                    System.out.println(Arrays.toString(sortingClass.selectionSort(num)));
+                    sortingClass.selectionSort(num);
                     num = numBackUp;
                     break;
                 case 3:

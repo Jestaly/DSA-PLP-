@@ -4,21 +4,19 @@ import java.util.Arrays;
 
 public class SortingClass {
 
-    public int[] bubbleSort(int[] num) {
+    public void bubbleSort(int[] num) {
 
         System.out.println("this a bubble sort.");
         int temp = Integer.MIN_VALUE;
         for (int i = 0; i < num.length; i++) {
+            System.out.println((i + 1) + ". " + Arrays.toString(num));
             for (int j = i + 1; j < num.length; j++) {
                 if (num[i] > num[j]) {
                     temp = num[j];
                     num[j] = num[i];
                     num[i] = temp;
                 }
-                System.out.println(Arrays.toString(num));
-
             }
-
         }
         // for (int i = 0; i < num.length; i++) {
         // for (int j = i + 1; j < num.length; j++) {
@@ -30,16 +28,16 @@ public class SortingClass {
         // }
         // System.out.println(Arrays.toString(num));
         // }
-        return num;
     }
 
-    public int[] selectionSort(int[] num) {
+    public void selectionSort(int[] num) {
 
         System.out.println("This is a selection sort.");
         int temp = Integer.MIN_VALUE;
         int smallestNum = Integer.MIN_VALUE;
         int position = Integer.MIN_VALUE;
         for (int i = 0; i < num.length; i++) {
+            System.out.println((i + 1) + ". " + Arrays.toString(num));
             boolean arrayInOrder = true;
             smallestNum = num[i];
             for (int j = i; j < num.length; j++) {
@@ -55,9 +53,7 @@ public class SortingClass {
             temp = num[i];
             num[i] = smallestNum;
             num[position] = temp;
-            System.out.println(Arrays.toString(num));
         }
-        return num;
     }
 
     public String insertionSort(int[] num) {
