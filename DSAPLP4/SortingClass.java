@@ -4,10 +4,6 @@ import java.util.Arrays;
 
 public class SortingClass {
 
-    SortingClass() {
-
-    }
-
     public String bubbleSort(int[] num) {
         int temp = Integer.MIN_VALUE;
         System.out.println("this a bubble sort.");
@@ -25,22 +21,22 @@ public class SortingClass {
     }
 
     public String selectionSort(int[] num) {
-        int temp = Integer.MIN_VALUE;
-        int smallestNum = num[0];
-        int counter = 0;
+        int temp = 0;
+        int smallestNum = 0;
+        int position = 0;
         System.out.println("This is a selection sort.");
         for (int i = 0; i < num.length; i++) {
-
+            smallestNum = num[i];
             for (int j = i; j < num.length; j++) {
                 if (num[j] < smallestNum) {
-                    counter++;
                     smallestNum = num[j];
+                    position = j;
                 }
             }
             temp = num[i];
             num[i] = smallestNum;
-            num[counter] = temp;
-            counter = 0;
+            num[position] = temp;
+            System.out.println(Arrays.toString(num));
 
         }
         return Arrays.toString(num);
