@@ -59,11 +59,10 @@ public class SortingClass {
     public void insertionSort(int[] num) {
 
         System.out.println("This is an insertion sort.");
-        int temp = 0;
-        int counter = 0;
-        int iCounter = 0;
+        int temp = Integer.MIN_VALUE;
+        int counter = Integer.MIN_VALUE;
+        int iCounter = Integer.MIN_VALUE;
         for (int i = 0; i < num.length; i++) {
-
             if (i != num.length - 1) {
                 counter = i + 1;
                 iCounter = i;
@@ -82,7 +81,6 @@ public class SortingClass {
                     break;
                 }
             }
-
         }
     }
 
