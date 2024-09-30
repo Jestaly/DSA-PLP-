@@ -65,10 +65,8 @@ public class SortingClass {
         for (int i = 0; i < num.length; i++) {
             if (i != num.length - 1) {
                 counter = i + 1;
-                iCounter = i;
-            } else {
-                iCounter = i;
             }
+            iCounter = i;
             System.out.println((iCounter + 1) + ". " + Arrays.toString(num));
             while (num[counter] < num[iCounter]) {
                 temp = num[counter];
