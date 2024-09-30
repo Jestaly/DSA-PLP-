@@ -61,14 +61,23 @@ public class SortingClass {
         System.out.println("This is an insertion sort.");
         int temp = 0;
         int counter = 0;
-        for (int i = 0; i < num.length; i++) {
+        int iCounter = 0;
+        for (int i = iCounter; i < num.length; i++) {
+            System.out.println((i + 1) + ". " + Arrays.toString(num));
             counter = i + 1;
             while (num[counter] < num[i]) {
                 temp = num[counter];
                 num[counter] = num[i];
                 num[i] = temp;
-                counter--;
+                if (i != 0 && counter != 0) {
+                    i--;
+                    counter--;
+                } else {
+                    break;
+                }
+                System.out.println((i + 1) + ". " + Arrays.toString(num));
             }
+            iCounter++;
         }
     }
 
