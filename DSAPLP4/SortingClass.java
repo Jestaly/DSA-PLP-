@@ -1,11 +1,11 @@
 package DSAPLP4;
 
 import java.util.Arrays;
+import DSAPLP4.stati;
 
 public class SortingClass {
 
     public void bubbleSort(int[] num) {
-
         System.out.println("This a bubble sort.");
         int temp = Integer.MIN_VALUE;
         for (int i = 0; i < num.length; i++) {
@@ -37,7 +37,7 @@ public class SortingClass {
         int smallestNum = Integer.MIN_VALUE;
         int position = Integer.MIN_VALUE;
         for (int i = 0; i < num.length; i++) {
-            System.out.println((i + 1) + ". " + Arrays.toString(num));
+            System.out.println((i) + ". " + Arrays.toString(num));
             boolean arrayInOrder = true;
             smallestNum = num[i];
             for (int j = i; j < num.length; j++) {
@@ -67,7 +67,7 @@ public class SortingClass {
                 counter = i + 1;
             }
             iCounter = i;
-            System.out.println((iCounter + 1) + ". " + Arrays.toString(num));
+            System.out.println((iCounter) + ". " + Arrays.toString(num));
             while (num[counter] < num[iCounter]) {
                 temp = num[counter];
                 num[counter] = num[iCounter];
