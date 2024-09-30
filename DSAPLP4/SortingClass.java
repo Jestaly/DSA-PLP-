@@ -62,26 +62,27 @@ public class SortingClass {
         int temp = 0;
         int counter = 0;
         int iCounter = 0;
-        for (int i = iCounter; i < num.length; i++) {
-            System.out.println((i + 1) + ". " + Arrays.toString(num));
+        for (int i = 0; i < num.length; i++) {
+
             if (i != num.length - 1) {
                 counter = i + 1;
+                iCounter = i;
             } else {
-                counter = i;
+                iCounter = i;
             }
-            while (num[counter] < num[i]) {
+            System.out.println((iCounter + 1) + ". " + Arrays.toString(num));
+            while (num[counter] < num[iCounter]) {
                 temp = num[counter];
-                num[counter] = num[i];
-                num[i] = temp;
-                if (i != 0 && counter != 0) {
-                    i--;
+                num[counter] = num[iCounter];
+                num[iCounter] = temp;
+                if (iCounter != 0 && counter != 0) {
+                    iCounter--;
                     counter--;
                 } else {
                     break;
                 }
-                System.out.println((i + 1) + ". " + Arrays.toString(num));
             }
-            iCounter++;
+
         }
     }
 
