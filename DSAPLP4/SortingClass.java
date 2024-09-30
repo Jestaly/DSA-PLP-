@@ -60,13 +60,14 @@ public class SortingClass {
 
         System.out.println("This is an insertion sort.");
         int temp = 0;
+        int counter = 0;
         for (int i = 0; i < num.length; i++) {
-            for (int j = i + 1; j < num.length; j++) {
-                if (num[j] < num[i]) {
-                    temp = num[j];
-                    num[j] = num[i];
-                    num[i] = temp;
-                }
+            counter = i + 1;
+            while (num[counter] < num[i]) {
+                temp = num[counter];
+                num[counter] = num[i];
+                num[i] = temp;
+                counter--;
             }
         }
     }
