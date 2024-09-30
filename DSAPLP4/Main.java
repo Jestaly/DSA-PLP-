@@ -40,7 +40,7 @@ public class Main {
                     num = numBackUp;
                     break;
                 case 3:
-                    System.out.println(sortingClass.insertionSort(num));
+                    sortingClass.insertionSort(num);
                     num = numBackUp;
                     break;
                 case 4:

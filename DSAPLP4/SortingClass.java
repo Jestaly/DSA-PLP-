@@ -6,7 +6,7 @@ public class SortingClass {
 
     public void bubbleSort(int[] num) {
 
-        System.out.println("this a bubble sort.");
+        System.out.println("This a bubble sort.");
         int temp = Integer.MIN_VALUE;
         for (int i = 0; i < num.length; i++) {
             System.out.println((i + 1) + ". " + Arrays.toString(num));
@@ -56,14 +56,19 @@ public class SortingClass {
         }
     }
 
-    public String insertionSort(int[] num) {
-        int temp = 0;
+    public void insertionSort(int[] num) {
+
         System.out.println("This is an insertion sort.");
-
+        int temp = 0;
         for (int i = 0; i < num.length; i++) {
-
+            for (int j = i + 1; j < num.length; j++) {
+                if (num[j] < num[i]) {
+                    temp = num[j];
+                    num[j] = num[i];
+                    num[i] = temp;
+                }
+            }
         }
-        return Arrays.toString(num);
     }
 
     public void exit() {
