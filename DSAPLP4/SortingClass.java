@@ -9,7 +9,6 @@ public class SortingClass {
         int temp = Integer.MIN_VALUE;
         int iCounter = 0;
         for (int i = 0; i < num.length; i++) {
-            System.out.println((i) + ". " + Arrays.toString(num));
             for (int j = 1; j < num.length; j++) {
                 if (num[iCounter] > num[j]) {
                     temp = num[iCounter];
@@ -19,6 +18,7 @@ public class SortingClass {
                 iCounter++;
             }
             iCounter = 0;
+            System.out.println((i + 1) + ". " + Arrays.toString(num));
         }
     }
 
@@ -29,7 +29,6 @@ public class SortingClass {
         int smallestNum = Integer.MIN_VALUE;
         int position = Integer.MIN_VALUE;
         for (int i = 0; i < num.length; i++) {
-            System.out.println((i) + ". " + Arrays.toString(num));
             boolean arrayInOrder = true;
             smallestNum = num[i];
             for (int j = i; j < num.length; j++) {
@@ -45,6 +44,7 @@ public class SortingClass {
             temp = num[i];
             num[i] = smallestNum;
             num[position] = temp;
+            System.out.println((i + 1) + ". " + Arrays.toString(num));
         }
     }
 
@@ -55,11 +55,13 @@ public class SortingClass {
         int counter = Integer.MIN_VALUE;
         int iCounter = Integer.MIN_VALUE;
         for (int i = 0; i < num.length; i++) {
+            iCounter = i;
             if (i != num.length - 1) {
                 counter = i + 1;
             }
-            iCounter = i;
-            System.out.println((iCounter) + ". " + Arrays.toString(num));
+            if (i != 0) {
+                System.out.println((iCounter) + ". " + Arrays.toString(num));
+            }
             while (num[counter] < num[iCounter]) {
                 temp = num[counter];
                 num[counter] = num[iCounter];
