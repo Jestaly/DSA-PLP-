@@ -28,17 +28,23 @@ public class SortingClass {
             if (i + 1 == num.length) {
                 break;
             }
-            String iteretedArray = (i + 1) + ". ";
+            String iteratedArray = (i + 1) + ". ";
             for (int j = 0; j < num.length; j++) {
-                iteretedArray += num[j] + " ";
+                iteratedArray += num[j] + " ";
             }
-            System.out.println(iteretedArray);
+            System.out.println(iteratedArray);
         }
         return num;
     }
 
     public int[] selectionSort(int[] num) {
-        System.out.println("This is a selection sort.");
+        System.out.println("==================================");
+        System.out.println("Selection Sort");
+        givenArray = "Given Array Elements: ";
+        for (int i = 0; i < num.length; i++) {
+            givenArray += num[i] + " ";
+        }
+        System.out.println(givenArray);
         int temp = Integer.MIN_VALUE;
         int smallestNum = Integer.MIN_VALUE;
         int position = Integer.MIN_VALUE;
@@ -58,9 +64,15 @@ public class SortingClass {
             temp = num[i];
             num[i] = smallestNum;
             num[position] = temp;
-            for (int j = 0; j < num.length; j++) {
-                System.out.print((i + 1) + ". " + num[j] + " ");
+
+            if (i + 1 == num.length) {
+                break;
             }
+            String iteratedArray = (i + 1) + ". ";
+            for (int j = 0; j < num.length; j++) {
+                iteratedArray += num[j] + " ";
+            }
+            System.out.println(iteratedArray);
         }
         return num;
     }

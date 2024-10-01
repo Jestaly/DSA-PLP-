@@ -21,7 +21,7 @@ public class Main {
         }
         boolean loop = true;
         while (loop) {
-
+            String sortedArray;
             System.out.println("---MAIN MENU---");
             System.out.println("[1] BUBBLE SORT");
             System.out.println("[2] SELECTION SORT");
@@ -32,22 +32,35 @@ public class Main {
             int choice = scanner.nextInt();
             switch (choice) {
                 case 1:
-                    num = numBackUp;
+
                     sortingClass.bubbleSort(num);
-                    String sortedArray = "The Sorted Array Elements: ";
+                    sortedArray = "The Sorted Array Elements: ";
                     for (int i = 0; i < num.length; i++) {
                         sortedArray += num[i] + " ";
                     }
                     System.out.println(sortedArray);
                     System.out.println("==================================");
+                    num = numBackUp;
                     break;
                 case 2:
-                    num = numBackUp;
                     sortingClass.selectionSort(num);
+                    sortedArray = "The Sorted Array Elements: ";
+                    for (int i = 0; i < num.length; i++) {
+                        sortedArray += num[i] + " ";
+                    }
+                    System.out.println(sortedArray);
+                    System.out.println("==================================");
+                    num = numBackUp;
                     break;
                 case 3:
-                    num = numBackUp;
                     sortingClass.insertionSort(num);
+                    sortedArray = "The Sorted Array Elements: ";
+                    for (int i = 0; i < num.length; i++) {
+                        sortedArray += num[i] + " ";
+                    }
+                    System.out.println(sortedArray);
+                    System.out.println("==================================");
+                    num = numBackUp;
                     break;
                 case 4:
                     sortingClass.exit();
