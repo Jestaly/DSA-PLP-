@@ -3,15 +3,16 @@ package DSAPLP4;
 import java.util.Arrays;
 
 public class SortingClass {
+    private String givenArray;
 
     public int[] bubbleSort(int[] num) {
+        System.out.println("==================================");
         System.out.println("Bubble Sort");
+        givenArray = "Given Array Elements: ";
         for (int i = 0; i < num.length; i++) {
-            if (i == 0) {
-                System.out.println("Given Array Elements: ");
-            }
-            System.out.print(num[i] + " ");
+            givenArray += num[i] + " ";
         }
+        System.out.println(givenArray);
         int temp = Integer.MIN_VALUE;
         int iCounter = 0;
         for (int i = 0; i < num.length; i++) {
@@ -24,10 +25,14 @@ public class SortingClass {
                 iCounter++;
             }
             iCounter = 0;
-            System.out.println((i + 1) + ". ");
-            for (int j = 0; j < num.length; j++) {
-                System.out.print(num[j] + " ");
+            if (i + 1 == num.length) {
+                break;
             }
+            String iteretedArray = (i + 1) + ". ";
+            for (int j = 0; j < num.length; j++) {
+                iteretedArray += num[j] + " ";
+            }
+            System.out.println(iteretedArray);
         }
         return num;
     }

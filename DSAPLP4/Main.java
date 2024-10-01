@@ -34,9 +34,12 @@ public class Main {
                 case 1:
                     num = numBackUp;
                     sortingClass.bubbleSort(num);
+                    String sortedArray = "The Sorted Array Elements: ";
                     for (int i = 0; i < num.length; i++) {
-                        System.out.print("The Sorted Array Elements: " + num[i]);
+                        sortedArray += num[i] + " ";
                     }
+                    System.out.println(sortedArray);
+                    System.out.println("==================================");
                     break;
                 case 2:
                     num = numBackUp;
