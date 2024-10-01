@@ -4,8 +4,14 @@ import java.util.Arrays;
 
 public class SortingClass {
 
-    public void bubbleSort(int[] num) {
-        System.out.println("This a bubble sort.");
+    public int[] bubbleSort(int[] num) {
+        System.out.println("Bubble Sort");
+        for (int i = 0; i < num.length; i++) {
+            if (i == 0) {
+                System.out.println("Given Array Elements: ");
+            }
+            System.out.print(num[i] + " ");
+        }
         int temp = Integer.MIN_VALUE;
         int iCounter = 0;
         for (int i = 0; i < num.length; i++) {
@@ -18,12 +24,15 @@ public class SortingClass {
                 iCounter++;
             }
             iCounter = 0;
-            System.out.println((i + 1) + ". " + Arrays.toString(num));
+            System.out.println((i + 1) + ". ");
+            for (int j = 0; j < num.length; j++) {
+                System.out.print(num[j] + " ");
+            }
         }
+        return num;
     }
 
-    public void selectionSort(int[] num) {
-
+    public int[] selectionSort(int[] num) {
         System.out.println("This is a selection sort.");
         int temp = Integer.MIN_VALUE;
         int smallestNum = Integer.MIN_VALUE;
@@ -44,12 +53,14 @@ public class SortingClass {
             temp = num[i];
             num[i] = smallestNum;
             num[position] = temp;
-            System.out.println((i + 1) + ". " + Arrays.toString(num));
+            for (int j = 0; j < num.length; j++) {
+                System.out.print((i + 1) + ". " + num[j] + " ");
+            }
         }
+        return num;
     }
 
-    public void insertionSort(int[] num) {
-
+    public int[] insertionSort(int[] num) {
         System.out.println("This is an insertion sort.");
         int temp = Integer.MIN_VALUE;
         int counter = Integer.MIN_VALUE;
@@ -74,6 +85,7 @@ public class SortingClass {
                 }
             }
         }
+        return num;
     }
 
     public void exit() {

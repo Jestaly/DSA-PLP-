@@ -32,16 +32,19 @@ public class Main {
             int choice = scanner.nextInt();
             switch (choice) {
                 case 1:
-                    sortingClass.bubbleSort(num);
                     num = numBackUp;
+                    sortingClass.bubbleSort(num);
+                    for (int i = 0; i < num.length; i++) {
+                        System.out.print("The Sorted Array Elements: " + num[i]);
+                    }
                     break;
                 case 2:
-                    sortingClass.selectionSort(num);
                     num = numBackUp;
+                    sortingClass.selectionSort(num);
                     break;
                 case 3:
-                    sortingClass.insertionSort(num);
                     num = numBackUp;
+                    sortingClass.insertionSort(num);
                     break;
                 case 4:
                     sortingClass.exit();
