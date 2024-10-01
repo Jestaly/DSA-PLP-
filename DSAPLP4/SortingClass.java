@@ -4,8 +4,9 @@ import java.util.Arrays;
 
 public class SortingClass {
     private String givenArray;
+    private String sortedArray;
 
-    public int[] bubbleSort(int[] num) {
+    public void bubbleSort(int[] num) {
         System.out.println("==================================");
         System.out.println("Bubble Sort");
         givenArray = "Given Array Elements: ";
@@ -34,10 +35,15 @@ public class SortingClass {
             }
             System.out.println(iteratedArray);
         }
-        return num;
+        sortedArray = "The Sorted Array Elements: ";
+        for (int i = 0; i < num.length; i++) {
+            sortedArray += num[i] + " ";
+        }
+        System.out.println(sortedArray);
+        System.out.println("==================================");
     }
 
-    public int[] selectionSort(int[] num) {
+    public void selectionSort(int[] num) {
         System.out.println("==================================");
         System.out.println("Selection Sort");
         givenArray = "Given Array Elements: ";
@@ -74,11 +80,23 @@ public class SortingClass {
             }
             System.out.println(iteratedArray);
         }
-        return num;
+        sortedArray = "The Sorted Array Elements: ";
+        for (int i = 0; i < num.length; i++) {
+            sortedArray += num[i] + " ";
+        }
+        System.out.println(sortedArray);
+        System.out.println("==================================");
     }
 
-    public int[] insertionSort(int[] num) {
-        System.out.println("This is an insertion sort.");
+    // NEEDS DEBUG
+    public void insertionSort(int[] num) {
+        System.out.println("==================================");
+        System.out.println("Insertion Sort");
+        givenArray = "Given Array Elements: ";
+        for (int i = 0; i < num.length; i++) {
+            givenArray += num[i] + " ";
+        }
+        System.out.println(givenArray);
         int temp = Integer.MIN_VALUE;
         int counter = Integer.MIN_VALUE;
         int iCounter = Integer.MIN_VALUE;
@@ -88,7 +106,11 @@ public class SortingClass {
                 counter = i + 1;
             }
             if (i != 0) {
-                System.out.println((iCounter) + ". " + Arrays.toString(num));
+                String iteratedArray = iCounter + ". ";
+                for (int j = 0; j < num.length; j++) {
+                    iteratedArray += num[j] + " ";
+                }
+                System.out.println(iteratedArray);
             }
             while (num[counter] < num[iCounter]) {
                 temp = num[counter];
@@ -102,7 +124,13 @@ public class SortingClass {
                 }
             }
         }
-        return num;
+        // NEEDS DEBUG
+        sortedArray = "The Sorted Array Elements: ";
+        for (int i = 0; i < num.length; i++) {
+            sortedArray += num[i] + " ";
+        }
+        System.out.println(sortedArray);
+        System.out.println("==================================");
     }
 
     public void exit() {

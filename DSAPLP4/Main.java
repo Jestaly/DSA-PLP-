@@ -21,7 +21,6 @@ public class Main {
         }
         boolean loop = true;
         while (loop) {
-            String sortedArray;
             System.out.println("---MAIN MENU---");
             System.out.println("[1] BUBBLE SORT");
             System.out.println("[2] SELECTION SORT");
@@ -34,32 +33,14 @@ public class Main {
                 case 1:
 
                     sortingClass.bubbleSort(num);
-                    sortedArray = "The Sorted Array Elements: ";
-                    for (int i = 0; i < num.length; i++) {
-                        sortedArray += num[i] + " ";
-                    }
-                    System.out.println(sortedArray);
-                    System.out.println("==================================");
                     num = numBackUp;
                     break;
                 case 2:
                     sortingClass.selectionSort(num);
-                    sortedArray = "The Sorted Array Elements: ";
-                    for (int i = 0; i < num.length; i++) {
-                        sortedArray += num[i] + " ";
-                    }
-                    System.out.println(sortedArray);
-                    System.out.println("==================================");
                     num = numBackUp;
                     break;
                 case 3:
                     sortingClass.insertionSort(num);
-                    sortedArray = "The Sorted Array Elements: ";
-                    for (int i = 0; i < num.length; i++) {
-                        sortedArray += num[i] + " ";
-                    }
-                    System.out.println(sortedArray);
-                    System.out.println("==================================");
                     num = numBackUp;
                     break;
                 case 4:
