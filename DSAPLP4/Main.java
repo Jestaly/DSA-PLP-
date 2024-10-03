@@ -12,15 +12,21 @@ public class Main {
         System.out.print("Enter Array Size: ");
         int size = scanner.nextInt();
 
-        int[] num = new int[size];
-        int[] numBackUp = new int[size];
+        final int[] num = new int[size];
+        int[] numBubbleSort = new int[size];
+        int[] numSelectionSort = new int[size];
+        int[] numInsertionSort = new int[size];
+
         for (int i = 0; i < size; i++) {
             System.out.print("Enter Element " + (i + 1) + ": ");
             num[i] = scanner.nextInt();
-            numBackUp[i] = num[i];
+            numBubbleSort[i] = num[i];
+            numSelectionSort[i] = num[i];
+            numInsertionSort[i] = num[i];
         }
-        System.out.println(Arrays.toString(numBackUp));
+
         boolean loop = true;
+
         while (loop) {
             System.out.println("---MAIN MENU---");
             System.out.println("[1] BUBBLE SORT");
@@ -32,19 +38,22 @@ public class Main {
             int choice = scanner.nextInt();
             switch (choice) {
                 case 1:
-                    System.out.println(Arrays.toString(numBackUp));
-                    sortingClass.bubbleSort(num);
-                    num = numBackUp;
+                    sortingClass.bubbleSort(numBubbleSort);
+                    numBubbleSort = num;
+                    System.out.println(Arrays.toString(num));
+                    numBubbleSort = num;
                     break;
                 case 2:
-                    System.out.println(Arrays.toString(numBackUp));
-                    sortingClass.selectionSort(num);
-                    num = numBackUp;
+                    sortingClass.selectionSort(numSelectionSort);
+                    numSelectionSort = num;
+                    System.out.println(Arrays.toString(num));
+                    numSelectionSort = num;
                     break;
                 case 3:
-                    System.out.println(Arrays.toString(numBackUp));
-                    sortingClass.insertionSort(num);
-                    num = numBackUp;
+                    sortingClass.insertionSort(numInsertionSort);
+                    numInsertionSort = num;
+                    System.out.println(Arrays.toString(num));
+                    numInsertionSort = num;
                     break;
                 case 4:
                     sortingClass.exit();
