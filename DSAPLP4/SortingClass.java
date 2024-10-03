@@ -50,6 +50,7 @@ public class SortingClass {
         for (int i = 0; i < num.length; i++) {
             givenArray += num[i] + " ";
         }
+
         System.out.println(givenArray);
         int temp = Integer.MIN_VALUE;
         int smallestNum = Integer.MIN_VALUE;
