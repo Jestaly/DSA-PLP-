@@ -88,7 +88,6 @@ public class SortingClass {
         System.out.println("==================================");
     }
 
-    // NEEDS DEBUG
     public void insertionSort(int[] num) {
         System.out.println("==================================");
         System.out.println("Insertion Sort");
@@ -112,6 +111,15 @@ public class SortingClass {
                 }
                 System.out.println(iteratedArray);
             }
+            if (i == num.length - 1) {
+                sortedArray = "The Sorted Array Elements: ";
+                for (int k = 0; k < num.length; k++) {
+                    sortedArray += num[k] + " ";
+                }
+                System.out.println(sortedArray);
+                System.out.println("==================================");
+                break;
+            }
             while (num[counter] < num[iCounter]) {
                 temp = num[counter];
                 num[counter] = num[iCounter];
@@ -124,13 +132,6 @@ public class SortingClass {
                 }
             }
         }
-        // NEEDS DEBUG
-        sortedArray = "The Sorted Array Elements: ";
-        for (int i = 0; i < num.length; i++) {
-            sortedArray += num[i] + " ";
-        }
-        System.out.println(sortedArray);
-        System.out.println("==================================");
     }
 
     public void exit() {

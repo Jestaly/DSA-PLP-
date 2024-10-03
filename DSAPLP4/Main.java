@@ -19,6 +19,7 @@ public class Main {
             num[i] = scanner.nextInt();
             numBackUp[i] = num[i];
         }
+        System.out.println(Arrays.toString(numBackUp));
         boolean loop = true;
         while (loop) {
             System.out.println("---MAIN MENU---");
@@ -31,15 +32,17 @@ public class Main {
             int choice = scanner.nextInt();
             switch (choice) {
                 case 1:
-
+                    System.out.println(Arrays.toString(numBackUp));
                     sortingClass.bubbleSort(num);
                     num = numBackUp;
                     break;
                 case 2:
+                    System.out.println(Arrays.toString(numBackUp));
                     sortingClass.selectionSort(num);
                     num = numBackUp;
                     break;
                 case 3:
+                    System.out.println(Arrays.toString(numBackUp));
                     sortingClass.insertionSort(num);
                     num = numBackUp;
                     break;
