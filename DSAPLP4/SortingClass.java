@@ -105,7 +105,7 @@ public class SortingClass {
             numS[position] = temp;
 
             // A CONDITION TO BREAK IF ARRAY REACHES THE FINAL INDEX
-            if (i + 1 == numS.length) {
+            if (i == numS.length - 1) {
                 break;
             }
 
@@ -128,6 +128,8 @@ public class SortingClass {
 
     // INSERTION SORT METHOD
     public void insertionSort(int[] numI) {
+
+        // PRINTING THE GIVEN ARRAY VALUES
         System.out.println("==================================");
         System.out.println("Insertion Sort");
         givenArray = "Given Array Elements: ";
@@ -136,23 +138,31 @@ public class SortingClass {
         }
         System.out.println(givenArray);
 
+        // INITIALIZING VARIABLES
         int temp = Integer.MIN_VALUE;
         int counter = Integer.MIN_VALUE;
         int iCounter = Integer.MIN_VALUE;
 
+        // LOOP FOR ITERATIONS
         for (int i = 0; i < numI.length; i++) {
+            // ASSIGNING i TO iCounter
             iCounter = i;
+            // A CONDITION IF i IS NOT EQUAL TO LENGTH - 1 THEN INCREMENT counter BY i+1
             if (i != numI.length - 1) {
                 counter = i + 1;
             }
+            // A CONDITION OF i IS NOT EQUAL TO 0 THEN START PRINTING THE ARRAYS
             if (i != 0) {
+                // PRINTING ARRAYS IN EACH ITERATIONS
                 String iteratedArray = iCounter + ". ";
                 for (int j = 0; j < numI.length; j++) {
                     iteratedArray += numI[j] + " ";
                 }
                 System.out.println(iteratedArray);
             }
+            // IF i IS EQUAL TO LENGTH - 1 THEN PRINT THE SORTED OUTPUT
             if (i == numI.length - 1) {
+                // PRINTING THE SORTED OUTPUT
                 sortedArray = "The Sorted Array Elements: ";
                 for (int k = 0; k < numI.length; k++) {
                     sortedArray += numI[k] + " ";
@@ -161,20 +171,23 @@ public class SortingClass {
                 System.out.println("==================================");
                 break;
             }
+            // A LOOP TO COMPARE EACH ELEMENTS
             while (numI[counter] < numI[iCounter]) {
+                // SWAPPING OF ELEMENTS
                 temp = numI[counter];
                 numI[counter] = numI[iCounter];
                 numI[iCounter] = temp;
+
+                // IF THESE TWO VARIABLES ARE NOT EQUAL TO 0 THEN DECREMENT THEM
                 if (iCounter != 0 && counter != 0) {
                     iCounter--;
                     counter--;
-                } else {
-                    break;
                 }
             }
         }
     }
 
+    // EXIT METHOD
     public void exit() {
         System.out.println("Exiting the program.");
     }
