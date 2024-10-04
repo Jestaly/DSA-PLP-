@@ -36,6 +36,7 @@ public class Main {
 
             System.out.print("Enter your choice: ");
             int choice = scanner.nextInt();
+            scanner.nextLine();
             switch (choice) {
                 case 1:
                     sortingClass.bubbleSort(numBubbleSort);
@@ -56,8 +57,9 @@ public class Main {
                     numInsertionSort = num;
                     break;
                 case 4:
-                    sortingClass.exit();
-                    loop = false;
+                    if (sortingClass.exit(scanner) == false) {
+                        loop = false;
+                    }
                     break;
                 default:
                     System.out.println("INVALID INPUT.");

@@ -1,5 +1,7 @@
 package DSAPLP4;
 
+import java.util.*;
+
 public class SortingClass {
     private String givenArray;
     private String sortedArray;
@@ -188,7 +190,25 @@ public class SortingClass {
     }
 
     // EXIT METHOD
-    public void exit() {
-        System.out.println("Exiting the program.");
+    public boolean exit(Scanner scanner) {
+        // System.out.println("Exiting the program.");
+        boolean loop = true;
+        do {
+
+            System.out.println("Exit the Program? [Y/N]");
+            String choice2 = scanner.nextLine();
+
+            if (choice2.toLowerCase().equals("n")) {
+                System.out.println("Returning to the Program.");
+                loop = false;
+            } else if (choice2.toLowerCase().equals("y")) {
+                System.out.println("Exiting the program");
+                return false;
+            } else {
+                System.out.println("Invalid Input. Try Again.");
+            }
+
+        } while (loop);
+        return true;
     }
 }
