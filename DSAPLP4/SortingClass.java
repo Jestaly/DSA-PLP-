@@ -4,9 +4,10 @@ public class SortingClass {
     private String givenArray;
     private String sortedArray;
 
+    // BUBBLE SORT METHOD
     public void bubbleSort(int[] numB) {
 
-        // FOR PRINTING GIVEN ARRAY VALUES
+        // PRINTING GIVEN ARRAY VALUES
         System.out.println("==================================");
         System.out.println("Bubble Sort");
         givenArray = "Given Array Elements: ";
@@ -14,12 +15,10 @@ public class SortingClass {
             givenArray += numB[i] + " ";
         }
         System.out.println(givenArray);
-        //
 
         // INITIALIZING VARIABLES
         int temp = Integer.MIN_VALUE;
         int iCounter = 0;
-        //
 
         // A LOOP FOR ITERATIONS
         for (int i = 0; i < numB.length; i++) {
@@ -50,7 +49,6 @@ public class SortingClass {
                 iteratedArray += numB[j] + " ";
             }
             System.out.println(iteratedArray);
-            //
         }
 
         // PRINTING THE SORTED OUTPUT
@@ -62,7 +60,9 @@ public class SortingClass {
         System.out.println("==================================");
     }
 
+    // SELECTION SORT METHOD
     public void selectionSort(int[] numS) {
+        // PRINTING GIVEN ARRAY VALUES
         System.out.println("==================================");
         System.out.println("Selection Sort");
         givenArray = "Given Array Elements: ";
@@ -71,35 +71,53 @@ public class SortingClass {
         }
         System.out.println(givenArray);
 
+        // INITIALIZING VARIABLES
         int temp = Integer.MIN_VALUE;
         int smallestNum = Integer.MIN_VALUE;
         int position = Integer.MIN_VALUE;
 
+        // A LOOP FOR ITERATIONS
         for (int i = 0; i < numS.length; i++) {
+            // INITIALIZING A BOOLEAN VARIABLE IN A LOOP EACH ITERATIONS
             boolean arrayInOrder = true;
+            // ASSIGNING THE LATEST numS AT INDEX i TO THE smallestNum
             smallestNum = numS[i];
+            // LOOP FOR COMPARISON
             for (int j = i; j < numS.length; j++) {
+                // A CONDITION TO COMPARE ELEMENTS IN EACH ITERATIONS TO THE VARIABLE
                 if (numS[j] <= smallestNum) {
+                    // ASSIGNING numS AND ITERATOR IN A VARIABLE
                     smallestNum = numS[j];
                     position = j;
+
+                    // A FLAG USED TO DETERMINE IF ARRAY IS ALREADY SORTED
                     arrayInOrder = false;
                 }
             }
+            // A CONDITION TO BREAK IF ARRAY IS SORTED
             if (arrayInOrder == true) {
                 break;
             }
+
+            // SWAPPING OF ELEMENTS
             temp = numS[i];
             numS[i] = smallestNum;
             numS[position] = temp;
+
+            // A CONDITION TO BREAK IF ARRAY REACHES THE FINAL INDEX
             if (i + 1 == numS.length) {
                 break;
             }
+
+            // PRINTING ARRAYS IN EACH ITERATIONS
             String iteratedArray = (i + 1) + ". ";
             for (int j = 0; j < numS.length; j++) {
                 iteratedArray += numS[j] + " ";
             }
             System.out.println(iteratedArray);
         }
+
+        // PRINTING THE SORTED OUTPUT
         sortedArray = "The Sorted Array Elements: ";
         for (int i = 0; i < numS.length; i++) {
             sortedArray += numS[i] + " ";
@@ -108,6 +126,7 @@ public class SortingClass {
         System.out.println("==================================");
     }
 
+    // INSERTION SORT METHOD
     public void insertionSort(int[] numI) {
         System.out.println("==================================");
         System.out.println("Insertion Sort");
