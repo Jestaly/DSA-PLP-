@@ -13,16 +13,11 @@ public class Main {
         int size = scanner.nextInt();
 
         final int[] num = new int[size];
-        int[] numBubbleSort = new int[size];
-        int[] numSelectionSort = new int[size];
-        int[] numInsertionSort = new int[size];
 
         for (int i = 0; i < size; i++) {
             System.out.print("Enter Element " + (i + 1) + ": ");
             num[i] = scanner.nextInt();
-            numBubbleSort[i] = num[i];
-            numSelectionSort[i] = num[i];
-            numInsertionSort[i] = num[i];
+
         }
 
         boolean loop = true;
@@ -37,24 +32,35 @@ public class Main {
             System.out.print("Enter your choice: ");
             int choice = scanner.nextInt();
             scanner.nextLine();
+
+            int[] numBubbleSort = new int[size];
+            int[] numSelectionSort = new int[size];
+            int[] numInsertionSort = new int[size];
+
+            for (int i = 0; i < size; i++) {
+                numBubbleSort[i] = num[i];
+                numSelectionSort[i] = num[i];
+                numInsertionSort[i] = num[i];
+            }
+
             switch (choice) {
                 case 1:
                     sortingClass.bubbleSort(numBubbleSort);
-                    numBubbleSort = num;
+                    // numBubbleSort = num;
                     System.out.println(Arrays.toString(num));
-                    numBubbleSort = num;
+                    // numBubbleSort = num;
                     break;
                 case 2:
                     sortingClass.selectionSort(numSelectionSort);
-                    numSelectionSort = num;
+                    // numSelectionSort = num;
                     System.out.println(Arrays.toString(num));
-                    numSelectionSort = num;
+                    // numSelectionSort = num;
                     break;
                 case 3:
                     sortingClass.insertionSort(numInsertionSort);
-                    numInsertionSort = num;
+                    // numInsertionSort = num;
                     System.out.println(Arrays.toString(num));
-                    numInsertionSort = num;
+                    // numInsertionSort = num;
                     break;
                 case 4:
                     if (sortingClass.exit(scanner) == false) {
