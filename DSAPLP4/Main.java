@@ -9,28 +9,60 @@ public class Main {
 
         SortingClass sortingClass = new SortingClass();
 
-        System.out.print("Enter Array Size: ");
-        int size = scanner.nextInt();
+        boolean loopSizeException = true;
+        int size = 0;
+        while (loopSizeException) {
+            try {
+                System.out.print("Enter Array Size: ");
+                size = scanner.nextInt();
+                break;
+            } catch (Exception e) {
+                System.out.println("Invalid Input. Try Again.");
+                scanner.next();
+            }
+        }
 
         final int[] num = new int[size];
 
-        for (int i = 0; i < size; i++) {
-            System.out.print("Enter Element " + (i + 1) + ": ");
-            num[i] = scanner.nextInt();
-
+        boolean loopElementException = true;
+        int eCounter = 0;
+        while (loopElementException) {
+            try {
+                for (int i = eCounter; i < size; i++) {
+                    System.out.print("Enter Element " + (i + 1) + ": ");
+                    num[eCounter] = scanner.nextInt();
+                    eCounter++;
+                }
+                break;
+            } catch (Exception e) {
+                System.out.println("Invalid Input. Try Again.");
+                scanner.next();
+            }
         }
 
         boolean loop = true;
 
         while (loop) {
-            System.out.println("---MAIN MENU---");
-            System.out.println("[1] BUBBLE SORT");
-            System.out.println("[2] SELECTION SORT");
-            System.out.println("[3] INSERTION SORT");
-            System.out.println("[4] EXIT");
-
-            System.out.print("Enter your choice: ");
-            int choice = scanner.nextInt();
+            int choice = 0;
+            boolean loopChoiceException = true;
+            while (loopChoiceException) {
+                try {
+                    System.out.println("---MAIN MENU---");
+                    System.out.println("[1] BUBBLE SORT");
+                    System.out.println("[2] SELECTION SORT");
+                    System.out.println("[3] INSERTION SORT");
+                    System.out.println("[4] EXIT");
+                    System.out.print("Enter your choice: ");
+                    choice = scanner.nextInt();
+                    if (!(choice <= 0 || choice >= 5)) {
+                        break;
+                    }
+                    System.out.println("Invalid Input. Try Again.");
+                } catch (Exception e) {
+                    System.out.println("Invalid Input. Try Again.");
+                    scanner.next();
+                }
+            }
             scanner.nextLine();
 
             int[] numBubbleSort = new int[size];
@@ -46,29 +78,20 @@ public class Main {
             switch (choice) {
                 case 1:
                     sortingClass.bubbleSort(numBubbleSort);
-                    // numBubbleSort = num;
                     System.out.println(Arrays.toString(num));
-                    // numBubbleSort = num;
                     break;
                 case 2:
                     sortingClass.selectionSort(numSelectionSort);
-                    // numSelectionSort = num;
                     System.out.println(Arrays.toString(num));
-                    // numSelectionSort = num;
                     break;
                 case 3:
                     sortingClass.insertionSort(numInsertionSort);
-                    // numInsertionSort = num;
                     System.out.println(Arrays.toString(num));
-                    // numInsertionSort = num;
                     break;
                 case 4:
                     if (sortingClass.exit(scanner) == false) {
                         loop = false;
                     }
-                    break;
-                default:
-                    System.out.println("INVALID INPUT.");
                     break;
             }
         }
