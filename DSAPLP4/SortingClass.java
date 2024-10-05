@@ -193,14 +193,14 @@ public class SortingClass {
     public boolean exit(Scanner scanner) {
         // System.out.println("Exiting the program.");
         boolean loop = true;
-        do {
+        while (loop) {
 
             System.out.println("Exit the Program? [Y/N]");
             String choice2 = scanner.nextLine();
 
             if (choice2.toLowerCase().equals("n")) {
                 System.out.println("Returning to the Program.");
-                loop = false;
+                break;
             } else if (choice2.toLowerCase().equals("y")) {
                 System.out.println("Exiting the program");
                 return false;
@@ -208,7 +208,7 @@ public class SortingClass {
                 System.out.println("Invalid Input. Try Again.");
             }
 
-        } while (loop);
+        }
         return true;
     }
 }
