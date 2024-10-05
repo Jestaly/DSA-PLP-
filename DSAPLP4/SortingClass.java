@@ -10,7 +10,7 @@ public class SortingClass {
     public void bubbleSort(int[] numB) {
 
         // PRINTING GIVEN ARRAY VALUES
-        System.out.println("==================================");
+        System.out.println("========================================================");
         System.out.println("Bubble Sort");
         givenArray = "Given Array Elements: ";
         for (int i = 0; i < numB.length; i++) {
@@ -59,13 +59,13 @@ public class SortingClass {
             sortedArray += numB[i] + " ";
         }
         System.out.println(sortedArray);
-        System.out.println("==================================");
+        System.out.println("========================================================");
     }
 
     // SELECTION SORT METHOD
     public void selectionSort(int[] numS) {
         // PRINTING GIVEN ARRAY VALUES
-        System.out.println("==================================");
+        System.out.println("========================================================");
         System.out.println("Selection Sort");
         givenArray = "Given Array Elements: ";
         for (int i = 0; i < numS.length; i++) {
@@ -125,14 +125,14 @@ public class SortingClass {
             sortedArray += numS[i] + " ";
         }
         System.out.println(sortedArray);
-        System.out.println("==================================");
+        System.out.println("========================================================");
     }
 
     // INSERTION SORT METHOD
     public void insertionSort(int[] numI) {
 
         // PRINTING THE GIVEN ARRAY VALUES
-        System.out.println("==================================");
+        System.out.println("========================================================");
         System.out.println("Insertion Sort");
         givenArray = "Given Array Elements: ";
         for (int i = 0; i < numI.length; i++) {
@@ -170,7 +170,7 @@ public class SortingClass {
                     sortedArray += numI[k] + " ";
                 }
                 System.out.println(sortedArray);
-                System.out.println("==================================");
+                System.out.println("========================================================");
                 break;
             }
             // A LOOP TO COMPARE EACH ELEMENTS
@@ -194,18 +194,24 @@ public class SortingClass {
         // System.out.println("Exiting the program.");
         boolean loop = true;
         while (loop) {
-
-            System.out.println("Exit the Program? [Y/N]");
+            System.out.println("========================================================");
+            System.out.print("Exit the Program? [Y/N]: ");
             String choice2 = scanner.nextLine();
 
             if (choice2.toLowerCase().equals("n")) {
+                System.out.println("========================================================");
                 System.out.println("Returning to the Program.");
+                System.out.println("========================================================");
                 break;
             } else if (choice2.toLowerCase().equals("y")) {
-                System.out.println("Exiting the program");
+                System.out.println("========================================================");
+                System.out.println("Program Exited.");
+                System.out.println("========================================================");
                 return false;
             } else {
+                System.out.println("========================================================");
                 System.out.println("Invalid Input. Try Again.");
+                System.out.println("========================================================");
             }
 
         }

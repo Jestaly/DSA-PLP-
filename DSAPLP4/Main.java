@@ -15,9 +15,12 @@ public class Main {
             try {
                 System.out.print("Enter Array Size: ");
                 size = scanner.nextInt();
+                System.out.println("========================================================");
                 break;
             } catch (Exception e) {
+                System.out.println("========================================================");
                 System.out.println("Invalid Input. Try Again.");
+                System.out.println("========================================================");
                 scanner.next();
             }
         }
@@ -31,11 +34,14 @@ public class Main {
                 for (int i = eCounter; i < size; i++) {
                     System.out.print("Enter Element " + (i + 1) + ": ");
                     num[eCounter] = scanner.nextInt();
+                    System.out.println("========================================================");
                     eCounter++;
                 }
                 break;
             } catch (Exception e) {
+                System.out.println("========================================================");
                 System.out.println("Invalid Input. Try Again.");
+                System.out.println("========================================================");
                 scanner.next();
             }
         }
@@ -52,14 +58,19 @@ public class Main {
                     System.out.println("[2] SELECTION SORT");
                     System.out.println("[3] INSERTION SORT");
                     System.out.println("[4] EXIT");
+                    System.out.println("========================================================");
                     System.out.print("Enter your choice: ");
                     choice = scanner.nextInt();
                     if (!(choice <= 0 || choice >= 5)) {
                         break;
                     }
+                    System.out.println("========================================================");
                     System.out.println("Invalid Input. Try Again.");
+                    System.out.println("========================================================");
                 } catch (Exception e) {
+                    System.out.println("========================================================");
                     System.out.println("Invalid Input. Try Again.");
+                    System.out.println("========================================================");
                     scanner.next();
                 }
             }
@@ -78,15 +89,12 @@ public class Main {
             switch (choice) {
                 case 1:
                     sortingClass.bubbleSort(numBubbleSort);
-                    System.out.println(Arrays.toString(num));
                     break;
                 case 2:
                     sortingClass.selectionSort(numSelectionSort);
-                    System.out.println(Arrays.toString(num));
                     break;
                 case 3:
                     sortingClass.insertionSort(numInsertionSort);
-                    System.out.println(Arrays.toString(num));
                     break;
                 case 4:
                     if (sortingClass.exit(scanner) == false) {
