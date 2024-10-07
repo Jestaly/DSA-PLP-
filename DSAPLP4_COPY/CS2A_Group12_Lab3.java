@@ -73,6 +73,7 @@ public class CS2A_Group12_Lab3 {
             }
             System.out.println(iteratedArr);
 
+            // COMPARES ARRAY TO SORTED ARRAY
             if (Arrays.equals(bubArr, autoSorter(autoArr))) {
                 break;
             }
@@ -86,7 +87,6 @@ public class CS2A_Group12_Lab3 {
         }
         System.out.println(sortedArr);
         System.out.println("========================================================");
-        // System.out.println(Arrays.toString(automSort(autoSort)));
     }
 
     // SELECTION SORT METHOD
@@ -102,35 +102,27 @@ public class CS2A_Group12_Lab3 {
 
         // INITIALIZING VARIABLES
         int temp = Integer.MIN_VALUE;
-        int smallestNum = Integer.MIN_VALUE;
+        int smallNum = Integer.MIN_VALUE;
         int pos = Integer.MIN_VALUE;
 
         // A LOOP FOR ITERATIONS
         for (int i = 0; i < selArr.length; i++) {
             // INITIALIZING A BOOLEAN VARIABLE IN A LOOP EACH ITERATIONS
-            boolean arrayInOrder = true;
             // ASSIGNING THE LATEST numS AT INDEX i TO THE smallestNum
-            smallestNum = selArr[i];
+            smallNum = selArr[i];
             // LOOP FOR COMPARISON
             for (int j = i; j < selArr.length; j++) {
                 // A CONDITION TO COMPARE ELEMENTS IN EACH ITERATIONS TO THE VARIABLE
-                if (selArr[j] <= smallestNum) {
+                if (selArr[j] <= smallNum) {
                     // ASSIGNING numS AND ITERATOR IN A VARIABLE
-                    smallestNum = selArr[j];
+                    smallNum = selArr[j];
                     pos = j;
-
-                    // A FLAG USED TO DETERMINE IF ARRAY IS ALREADY SORTED
-                    arrayInOrder = false;
                 }
-            }
-            // A CONDITION TO BREAK IF ARRAY IS SORTED
-            if (arrayInOrder == true) {
-                break;
             }
 
             // SWAPPING OF ELEMENTS
             temp = selArr[i];
-            selArr[i] = smallestNum;
+            selArr[i] = smallNum;
             selArr[pos] = temp;
 
             // A CONDITION TO BREAK IF ARRAY REACHES THE FINAL INDEX
@@ -144,6 +136,11 @@ public class CS2A_Group12_Lab3 {
                 iteratedArr += selArr[j] + " ";
             }
             System.out.println(iteratedArr);
+
+            // COMPARES ARRAY TO SORTED ARRAY
+            if (Arrays.equals(selArr, autoSorter(autoArr))) {
+                break;
+            }
         }
 
         // PRINTING THE SORTED OUTPUT
@@ -153,6 +150,7 @@ public class CS2A_Group12_Lab3 {
         }
         System.out.println(sortedArr);
         System.out.println("========================================================");
+
     }
 
     // INSERTION SORT METHOD
@@ -189,9 +187,9 @@ public class CS2A_Group12_Lab3 {
                 }
                 System.out.println(iteratedArr);
             }
-            // IF i IS EQUAL TO LENGTH - 1 THEN PRINT THE SORTED OUTPUT
-            if (i == insArr.length - 1) {
-                // PRINTING THE SORTED OUTPUT
+
+            // COMPARES ARRAY TO SORTED ARRAY
+            if (Arrays.equals(insArr, autoSorter(autoArr))) {
                 sortedArr = "The Sorted Array Elements: ";
                 for (int k = 0; k < insArr.length; k++) {
                     sortedArr += insArr[k] + " ";
@@ -200,6 +198,7 @@ public class CS2A_Group12_Lab3 {
                 System.out.println("========================================================");
                 break;
             }
+
             // A LOOP TO COMPARE EACH ELEMENTS
             while (insArr[counter] < insArr[iCounter]) {
                 // SWAPPING OF ELEMENTS
