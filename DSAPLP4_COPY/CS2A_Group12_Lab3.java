@@ -91,15 +91,14 @@ public class CS2A_Group12_Lab3 {
             if (Arrays.equals(bubArr, autoSorter(autoArr))) {
                 break;
             }
-
         }
-
         // PRINTING THE SORTED OUTPUT
         printOutputArray(bubArr);
     }
 
     // SELECTION SORT METHOD
     public static void selectionSort(int[] selArr, int[] autoArr) {
+
         // PRINTING GIVEN ARRAY VALUES
         printGivenArray(selArr);
 
@@ -128,11 +127,6 @@ public class CS2A_Group12_Lab3 {
             selArr[i] = smallNum;
             selArr[pos] = temp;
 
-            // A CONDITION TO BREAK IF ARRAY REACHES THE FINAL INDEX
-            // if (i == selArr.length - 1) {
-            // break;
-            // }
-
             // PRINTING ARRAYS IN EACH ITERATIONS
             printIteratedArray(selArr, i);
 
@@ -141,10 +135,8 @@ public class CS2A_Group12_Lab3 {
                 break;
             }
         }
-
         // PRINTING THE SORTED OUTPUT
         printOutputArray(selArr);
-
     }
 
     // INSERTION SORT METHOD
@@ -216,13 +208,13 @@ public class CS2A_Group12_Lab3 {
                 System.out.println("Invalid Input. Try Again.");
                 System.out.println("========================================================");
             }
-
         }
         return true;
     }
 
     // MAIN METHOD
     public static void main(String args[]) {
+
         Scanner scanner = new Scanner(System.in);
 
         boolean sizeExc = true;
@@ -248,6 +240,7 @@ public class CS2A_Group12_Lab3 {
                 }
             } while (size < 4 || size > 15);
         }
+
         final int[] num = new int[size];
 
         boolean elemExc = true;
@@ -268,8 +261,8 @@ public class CS2A_Group12_Lab3 {
                 scanner.next();
             }
         }
-        boolean loop = true;
 
+        boolean loop = true;
         while (loop) {
             int choice = 0;
             boolean choiceExc = true;
