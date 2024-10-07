@@ -1,23 +1,41 @@
 package DSAPLP4_COPY;
 
+import java.util.Arrays;
 import java.util.Scanner;
-
-import DSAPLP4.SortingClass;
 
 public class CS2A_Group12_Lab3 {
 
     private static String givenArr;
     private static String sortedArr;
 
+    // AUTOMATIC SORT CHECKER
+    public static int[] autoSorter(int[] autoArr) {
+        int temp = 0;
+        int iCounter = 0;
+        for (int i = 0; i < autoArr.length; i++) {
+            for (int j = 1; j < autoArr.length; j++) {
+                if (autoArr[iCounter] > autoArr[j]) {
+                    // SWAPPING OF ELEMENTS
+                    temp = autoArr[iCounter];
+                    autoArr[iCounter] = autoArr[j];
+                    autoArr[j] = temp;
+                }
+                iCounter++;
+            }
+            iCounter = 0;
+        }
+        return autoArr;
+    }
+
     // BUBBLE SORT METHOD
-    public static void bubbleSort(int[] numB) {
+    public static void bubbleSort(int[] bubArr, int[] autoArr) {
 
         // PRINTING GIVEN ARRAY VALUES
         System.out.println("========================================================");
         System.out.println("Bubble Sort");
         givenArr = "Given Array Elements: ";
-        for (int i = 0; i < numB.length; i++) {
-            givenArr += numB[i] + " ";
+        for (int i = 0; i < bubArr.length; i++) {
+            givenArr += bubArr[i] + " ";
         }
         System.out.println(givenArr);
 
@@ -26,15 +44,15 @@ public class CS2A_Group12_Lab3 {
         int iCounter = 0;
 
         // A LOOP FOR ITERATIONS
-        for (int i = 0; i < numB.length; i++) {
+        for (int i = 0; i < bubArr.length; i++) {
             // A NESTED LOOP TO COMPARE ELEMENTS
-            for (int j = 1; j < numB.length; j++) {
+            for (int j = 1; j < bubArr.length; j++) {
                 // A CONDITION TO ACTUALLY COMPARE ELEMENTS
-                if (numB[iCounter] > numB[j]) {
+                if (bubArr[iCounter] > bubArr[j]) {
                     // SWAPPING OF ELEMENTS
-                    temp = numB[iCounter];
-                    numB[iCounter] = numB[j];
-                    numB[j] = temp;
+                    temp = bubArr[iCounter];
+                    bubArr[iCounter] = bubArr[j];
+                    bubArr[j] = temp;
                 }
                 // A COUNTER WHICH TASK IS TO INCREMENT AND COMPARE ELEMENTS IN A NESTED LOOP
                 iCounter++;
@@ -44,35 +62,41 @@ public class CS2A_Group12_Lab3 {
 
             // A CONDITION IF THE ARRAY REACHES THE LIMIT -- SO IT WILL
             // NOT PRINT ANOTHER ARRAY
-            if (i + 1 == numB.length) {
+            if (i + 1 == bubArr.length) {
                 break;
             }
 
             // PRINTING THE ARRAYS IN EACH ITERATIONS
             String iteratedArr = (i + 1) + ". ";
-            for (int j = 0; j < numB.length; j++) {
-                iteratedArr += numB[j] + " ";
+            for (int j = 0; j < bubArr.length; j++) {
+                iteratedArr += bubArr[j] + " ";
             }
             System.out.println(iteratedArr);
+
+            if (Arrays.equals(bubArr, autoSorter(autoArr))) {
+                break;
+            }
+
         }
 
         // PRINTING THE SORTED OUTPUT
         sortedArr = "The Sorted Array Elements: ";
-        for (int i = 0; i < numB.length; i++) {
-            sortedArr += numB[i] + " ";
+        for (int i = 0; i < bubArr.length; i++) {
+            sortedArr += bubArr[i] + " ";
         }
         System.out.println(sortedArr);
         System.out.println("========================================================");
+        // System.out.println(Arrays.toString(automSort(autoSort)));
     }
 
     // SELECTION SORT METHOD
-    public static void selectionSort(int[] numS) {
+    public static void selectionSort(int[] selArr, int[] autoArr) {
         // PRINTING GIVEN ARRAY VALUES
         System.out.println("========================================================");
         System.out.println("Selection Sort");
         givenArr = "Given Array Elements: ";
-        for (int i = 0; i < numS.length; i++) {
-            givenArr += numS[i] + " ";
+        for (int i = 0; i < selArr.length; i++) {
+            givenArr += selArr[i] + " ";
         }
         System.out.println(givenArr);
 
@@ -82,17 +106,17 @@ public class CS2A_Group12_Lab3 {
         int pos = Integer.MIN_VALUE;
 
         // A LOOP FOR ITERATIONS
-        for (int i = 0; i < numS.length; i++) {
+        for (int i = 0; i < selArr.length; i++) {
             // INITIALIZING A BOOLEAN VARIABLE IN A LOOP EACH ITERATIONS
             boolean arrayInOrder = true;
             // ASSIGNING THE LATEST numS AT INDEX i TO THE smallestNum
-            smallestNum = numS[i];
+            smallestNum = selArr[i];
             // LOOP FOR COMPARISON
-            for (int j = i; j < numS.length; j++) {
+            for (int j = i; j < selArr.length; j++) {
                 // A CONDITION TO COMPARE ELEMENTS IN EACH ITERATIONS TO THE VARIABLE
-                if (numS[j] <= smallestNum) {
+                if (selArr[j] <= smallestNum) {
                     // ASSIGNING numS AND ITERATOR IN A VARIABLE
-                    smallestNum = numS[j];
+                    smallestNum = selArr[j];
                     pos = j;
 
                     // A FLAG USED TO DETERMINE IF ARRAY IS ALREADY SORTED
@@ -105,41 +129,41 @@ public class CS2A_Group12_Lab3 {
             }
 
             // SWAPPING OF ELEMENTS
-            temp = numS[i];
-            numS[i] = smallestNum;
-            numS[pos] = temp;
+            temp = selArr[i];
+            selArr[i] = smallestNum;
+            selArr[pos] = temp;
 
             // A CONDITION TO BREAK IF ARRAY REACHES THE FINAL INDEX
-            if (i == numS.length - 1) {
+            if (i == selArr.length - 1) {
                 break;
             }
 
             // PRINTING ARRAYS IN EACH ITERATIONS
             String iteratedArr = (i + 1) + ". ";
-            for (int j = 0; j < numS.length; j++) {
-                iteratedArr += numS[j] + " ";
+            for (int j = 0; j < selArr.length; j++) {
+                iteratedArr += selArr[j] + " ";
             }
             System.out.println(iteratedArr);
         }
 
         // PRINTING THE SORTED OUTPUT
         sortedArr = "The Sorted Array Elements: ";
-        for (int i = 0; i < numS.length; i++) {
-            sortedArr += numS[i] + " ";
+        for (int i = 0; i < selArr.length; i++) {
+            sortedArr += selArr[i] + " ";
         }
         System.out.println(sortedArr);
         System.out.println("========================================================");
     }
 
     // INSERTION SORT METHOD
-    public static void insertionSort(int[] numI) {
+    public static void insertionSort(int[] insArr, int[] autoArr) {
 
         // PRINTING THE GIVEN ARRAY VALUES
         System.out.println("========================================================");
         System.out.println("Insertion Sort");
         givenArr = "Given Array Elements: ";
-        for (int i = 0; i < numI.length; i++) {
-            givenArr += numI[i] + " ";
+        for (int i = 0; i < insArr.length; i++) {
+            givenArr += insArr[i] + " ";
         }
         System.out.println(givenArr);
 
@@ -149,39 +173,39 @@ public class CS2A_Group12_Lab3 {
         int iCounter = Integer.MIN_VALUE;
 
         // LOOP FOR ITERATIONS
-        for (int i = 0; i < numI.length; i++) {
+        for (int i = 0; i < insArr.length; i++) {
             // ASSIGNING i TO iCounter
             iCounter = i;
             // A CONDITION IF i IS NOT EQUAL TO LENGTH - 1 THEN INCREMENT counter BY i+1
-            if (i != numI.length - 1) {
+            if (i != insArr.length - 1) {
                 counter = i + 1;
             }
             // A CONDITION OF i IS NOT EQUAL TO 0 THEN START PRINTING THE ARRAYS
             if (i != 0) {
                 // PRINTING ARRAYS IN EACH ITERATIONS
                 String iteratedArr = iCounter + ". ";
-                for (int j = 0; j < numI.length; j++) {
-                    iteratedArr += numI[j] + " ";
+                for (int j = 0; j < insArr.length; j++) {
+                    iteratedArr += insArr[j] + " ";
                 }
                 System.out.println(iteratedArr);
             }
             // IF i IS EQUAL TO LENGTH - 1 THEN PRINT THE SORTED OUTPUT
-            if (i == numI.length - 1) {
+            if (i == insArr.length - 1) {
                 // PRINTING THE SORTED OUTPUT
                 sortedArr = "The Sorted Array Elements: ";
-                for (int k = 0; k < numI.length; k++) {
-                    sortedArr += numI[k] + " ";
+                for (int k = 0; k < insArr.length; k++) {
+                    sortedArr += insArr[k] + " ";
                 }
                 System.out.println(sortedArr);
                 System.out.println("========================================================");
                 break;
             }
             // A LOOP TO COMPARE EACH ELEMENTS
-            while (numI[counter] < numI[iCounter]) {
+            while (insArr[counter] < insArr[iCounter]) {
                 // SWAPPING OF ELEMENTS
-                temp = numI[counter];
-                numI[counter] = numI[iCounter];
-                numI[iCounter] = temp;
+                temp = insArr[counter];
+                insArr[counter] = insArr[iCounter];
+                insArr[iCounter] = temp;
 
                 // IF THESE TWO VARIABLES ARE NOT EQUAL TO 0 THEN DECREMENT THEM
                 if (iCounter != 0 && counter != 0) {
@@ -194,9 +218,7 @@ public class CS2A_Group12_Lab3 {
 
     // EXIT METHOD
     public static boolean exit(Scanner scanner) {
-        // System.out.println("Exiting the program.");
-        boolean loop = true;
-        while (loop) {
+        while (true) {
             System.out.println("========================================================");
             System.out.print("Exit the Program? [Y/N]: ");
             String exit = scanner.nextLine();
@@ -233,7 +255,7 @@ public class CS2A_Group12_Lab3 {
                     System.out.print("Enter Array Size: ");
                     size = scanner.nextInt();
                     System.out.println("========================================================");
-                    if (size >= 5 && size <= 15) {
+                    if (size >= 4 && size <= 15) {
                         sizeExc = false;
                         break;
                     } else {
@@ -246,7 +268,7 @@ public class CS2A_Group12_Lab3 {
                     System.out.println("========================================================");
                     scanner.next();
                 }
-            } while (size < 5 || size > 15);
+            } while (size < 4 || size > 15);
         }
         final int[] num = new int[size];
 
@@ -298,25 +320,27 @@ public class CS2A_Group12_Lab3 {
             }
             scanner.nextLine();
 
-            int[] numBubbleSort = new int[size];
-            int[] numSelectionSort = new int[size];
-            int[] numInsertionSort = new int[size];
+            int[] bubArr = new int[size];
+            int[] selArr = new int[size];
+            int[] insArr = new int[size];
+            int[] autoArr = new int[size];
 
             for (int i = 0; i < size; i++) {
-                numBubbleSort[i] = num[i];
-                numSelectionSort[i] = num[i];
-                numInsertionSort[i] = num[i];
+                bubArr[i] = num[i];
+                selArr[i] = num[i];
+                insArr[i] = num[i];
+                autoArr[i] = num[i];
             }
 
             switch (choice) {
                 case 1:
-                    bubbleSort(numBubbleSort);
+                    bubbleSort(bubArr, autoArr);
                     break;
                 case 2:
-                    selectionSort(numSelectionSort);
+                    selectionSort(selArr, autoArr);
                     break;
                 case 3:
-                    insertionSort(numInsertionSort);
+                    insertionSort(insArr, autoArr);
                     break;
                 case 4:
                     if (exit(scanner) == false) {
