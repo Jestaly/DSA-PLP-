@@ -6,8 +6,8 @@ import DSAPLP4.SortingClass;
 
 public class CS2A_Group12_Lab3 {
 
-    private static String givenArray;
-    private static String sortedArray;
+    private static String givenArr;
+    private static String sortedArr;
 
     // BUBBLE SORT METHOD
     public static void bubbleSort(int[] numB) {
@@ -15,11 +15,11 @@ public class CS2A_Group12_Lab3 {
         // PRINTING GIVEN ARRAY VALUES
         System.out.println("========================================================");
         System.out.println("Bubble Sort");
-        givenArray = "Given Array Elements: ";
+        givenArr = "Given Array Elements: ";
         for (int i = 0; i < numB.length; i++) {
-            givenArray += numB[i] + " ";
+            givenArr += numB[i] + " ";
         }
-        System.out.println(givenArray);
+        System.out.println(givenArr);
 
         // INITIALIZING VARIABLES
         int temp = Integer.MIN_VALUE;
@@ -49,19 +49,19 @@ public class CS2A_Group12_Lab3 {
             }
 
             // PRINTING THE ARRAYS IN EACH ITERATIONS
-            String iteratedArray = (i + 1) + ". ";
+            String iteratedArr = (i + 1) + ". ";
             for (int j = 0; j < numB.length; j++) {
-                iteratedArray += numB[j] + " ";
+                iteratedArr += numB[j] + " ";
             }
-            System.out.println(iteratedArray);
+            System.out.println(iteratedArr);
         }
 
         // PRINTING THE SORTED OUTPUT
-        sortedArray = "The Sorted Array Elements: ";
+        sortedArr = "The Sorted Array Elements: ";
         for (int i = 0; i < numB.length; i++) {
-            sortedArray += numB[i] + " ";
+            sortedArr += numB[i] + " ";
         }
-        System.out.println(sortedArray);
+        System.out.println(sortedArr);
         System.out.println("========================================================");
     }
 
@@ -70,16 +70,16 @@ public class CS2A_Group12_Lab3 {
         // PRINTING GIVEN ARRAY VALUES
         System.out.println("========================================================");
         System.out.println("Selection Sort");
-        givenArray = "Given Array Elements: ";
+        givenArr = "Given Array Elements: ";
         for (int i = 0; i < numS.length; i++) {
-            givenArray += numS[i] + " ";
+            givenArr += numS[i] + " ";
         }
-        System.out.println(givenArray);
+        System.out.println(givenArr);
 
         // INITIALIZING VARIABLES
         int temp = Integer.MIN_VALUE;
         int smallestNum = Integer.MIN_VALUE;
-        int position = Integer.MIN_VALUE;
+        int pos = Integer.MIN_VALUE;
 
         // A LOOP FOR ITERATIONS
         for (int i = 0; i < numS.length; i++) {
@@ -93,7 +93,7 @@ public class CS2A_Group12_Lab3 {
                 if (numS[j] <= smallestNum) {
                     // ASSIGNING numS AND ITERATOR IN A VARIABLE
                     smallestNum = numS[j];
-                    position = j;
+                    pos = j;
 
                     // A FLAG USED TO DETERMINE IF ARRAY IS ALREADY SORTED
                     arrayInOrder = false;
@@ -107,7 +107,7 @@ public class CS2A_Group12_Lab3 {
             // SWAPPING OF ELEMENTS
             temp = numS[i];
             numS[i] = smallestNum;
-            numS[position] = temp;
+            numS[pos] = temp;
 
             // A CONDITION TO BREAK IF ARRAY REACHES THE FINAL INDEX
             if (i == numS.length - 1) {
@@ -115,19 +115,19 @@ public class CS2A_Group12_Lab3 {
             }
 
             // PRINTING ARRAYS IN EACH ITERATIONS
-            String iteratedArray = (i + 1) + ". ";
+            String iteratedArr = (i + 1) + ". ";
             for (int j = 0; j < numS.length; j++) {
-                iteratedArray += numS[j] + " ";
+                iteratedArr += numS[j] + " ";
             }
-            System.out.println(iteratedArray);
+            System.out.println(iteratedArr);
         }
 
         // PRINTING THE SORTED OUTPUT
-        sortedArray = "The Sorted Array Elements: ";
+        sortedArr = "The Sorted Array Elements: ";
         for (int i = 0; i < numS.length; i++) {
-            sortedArray += numS[i] + " ";
+            sortedArr += numS[i] + " ";
         }
-        System.out.println(sortedArray);
+        System.out.println(sortedArr);
         System.out.println("========================================================");
     }
 
@@ -137,11 +137,11 @@ public class CS2A_Group12_Lab3 {
         // PRINTING THE GIVEN ARRAY VALUES
         System.out.println("========================================================");
         System.out.println("Insertion Sort");
-        givenArray = "Given Array Elements: ";
+        givenArr = "Given Array Elements: ";
         for (int i = 0; i < numI.length; i++) {
-            givenArray += numI[i] + " ";
+            givenArr += numI[i] + " ";
         }
-        System.out.println(givenArray);
+        System.out.println(givenArr);
 
         // INITIALIZING VARIABLES
         int temp = Integer.MIN_VALUE;
@@ -159,20 +159,20 @@ public class CS2A_Group12_Lab3 {
             // A CONDITION OF i IS NOT EQUAL TO 0 THEN START PRINTING THE ARRAYS
             if (i != 0) {
                 // PRINTING ARRAYS IN EACH ITERATIONS
-                String iteratedArray = iCounter + ". ";
+                String iteratedArr = iCounter + ". ";
                 for (int j = 0; j < numI.length; j++) {
-                    iteratedArray += numI[j] + " ";
+                    iteratedArr += numI[j] + " ";
                 }
-                System.out.println(iteratedArray);
+                System.out.println(iteratedArr);
             }
             // IF i IS EQUAL TO LENGTH - 1 THEN PRINT THE SORTED OUTPUT
             if (i == numI.length - 1) {
                 // PRINTING THE SORTED OUTPUT
-                sortedArray = "The Sorted Array Elements: ";
+                sortedArr = "The Sorted Array Elements: ";
                 for (int k = 0; k < numI.length; k++) {
-                    sortedArray += numI[k] + " ";
+                    sortedArr += numI[k] + " ";
                 }
-                System.out.println(sortedArray);
+                System.out.println(sortedArr);
                 System.out.println("========================================================");
                 break;
             }
@@ -199,14 +199,14 @@ public class CS2A_Group12_Lab3 {
         while (loop) {
             System.out.println("========================================================");
             System.out.print("Exit the Program? [Y/N]: ");
-            String choice2 = scanner.nextLine();
+            String exit = scanner.nextLine();
 
-            if (choice2.toLowerCase().equals("n")) {
+            if (exit.toLowerCase().equals("n")) {
                 System.out.println("========================================================");
                 System.out.println("Returning to the Program.");
                 System.out.println("========================================================");
                 break;
-            } else if (choice2.toLowerCase().equals("y")) {
+            } else if (exit.toLowerCase().equals("y")) {
                 System.out.println("========================================================");
                 System.out.println("Program Exited.");
                 System.out.println("========================================================");
@@ -225,29 +225,34 @@ public class CS2A_Group12_Lab3 {
     public static void main(String args[]) {
         Scanner scanner = new Scanner(System.in);
 
-        SortingClass sortingClass = new SortingClass();
-
-        boolean loopSizeException = true;
+        boolean sizeExc = true;
         int size = 0;
-        while (loopSizeException) {
-            try {
-                System.out.print("Enter Array Size: ");
-                size = scanner.nextInt();
-                System.out.println("========================================================");
-                break;
-            } catch (Exception e) {
-                System.out.println("========================================================");
-                System.out.println("Invalid Input. Try Again.");
-                System.out.println("========================================================");
-                scanner.next();
-            }
+        while (sizeExc) {
+            do {
+                try {
+                    System.out.print("Enter Array Size: ");
+                    size = scanner.nextInt();
+                    System.out.println("========================================================");
+                    if (size >= 5 && size <= 15) {
+                        sizeExc = false;
+                        break;
+                    } else {
+                        System.out.println("Invalid size. Try Again.");
+                        continue;
+                    }
+                } catch (Exception e) {
+                    System.out.println("========================================================");
+                    System.out.println("Invalid Input. Try Again.");
+                    System.out.println("========================================================");
+                    scanner.next();
+                }
+            } while (size < 5 || size > 15);
         }
-
         final int[] num = new int[size];
 
-        boolean loopElementException = true;
+        boolean elemExc = true;
         int eCounter = 0;
-        while (loopElementException) {
+        while (elemExc) {
             try {
                 for (int i = eCounter; i < size; i++) {
                     System.out.print("Enter Element " + (i + 1) + ": ");
@@ -263,13 +268,12 @@ public class CS2A_Group12_Lab3 {
                 scanner.next();
             }
         }
-
         boolean loop = true;
 
         while (loop) {
             int choice = 0;
-            boolean loopChoiceException = true;
-            while (loopChoiceException) {
+            boolean choiceExc = true;
+            while (choiceExc) {
                 try {
                     System.out.println("---MAIN MENU---");
                     System.out.println("[1] BUBBLE SORT");
