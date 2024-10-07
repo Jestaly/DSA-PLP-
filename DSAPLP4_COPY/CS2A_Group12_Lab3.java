@@ -27,17 +27,41 @@ public class CS2A_Group12_Lab3 {
         return autoArr;
     }
 
+    // PRINTS GIVEN ARRAY
+    public static void printGivenArray(int[] numArr) {
+        System.out.println("========================================================");
+        System.out.println("Bubble Sort");
+        givenArr = "Given Array Elements: ";
+        for (int i = 0; i < numArr.length; i++) {
+            givenArr += numArr[i] + " ";
+        }
+        System.out.println(givenArr);
+    }
+
+    // PRINTS ITERATED ARRAY
+    public static void printIteratedArray(int[] numArr, int i) {
+        String iteratedArr = (i + 1) + ". ";
+        for (int j = 0; j < numArr.length; j++) {
+            iteratedArr += numArr[j] + " ";
+        }
+        System.out.println(iteratedArr);
+    }
+
+    // PRINTS SORTED ARRAY
+    public static void printOutputArray(int[] numArr) {
+        sortedArr = "The Sorted Array Elements: ";
+        for (int i = 0; i < numArr.length; i++) {
+            sortedArr += numArr[i] + " ";
+        }
+        System.out.println(sortedArr);
+        System.out.println("========================================================");
+    }
+
     // BUBBLE SORT METHOD
     public static void bubbleSort(int[] bubArr, int[] autoArr) {
 
         // PRINTING GIVEN ARRAY VALUES
-        System.out.println("========================================================");
-        System.out.println("Bubble Sort");
-        givenArr = "Given Array Elements: ";
-        for (int i = 0; i < bubArr.length; i++) {
-            givenArr += bubArr[i] + " ";
-        }
-        System.out.println(givenArr);
+        printGivenArray(bubArr);
 
         // INITIALIZING VARIABLES
         int temp = Integer.MIN_VALUE;
@@ -60,18 +84,8 @@ public class CS2A_Group12_Lab3 {
             // RESETS COUNTER TO 0 TO START AGAIN FROM THE BEGINNING
             iCounter = 0;
 
-            // A CONDITION IF THE ARRAY REACHES THE LIMIT -- SO IT WILL
-            // NOT PRINT ANOTHER ARRAY
-            if (i + 1 == bubArr.length) {
-                break;
-            }
-
             // PRINTING THE ARRAYS IN EACH ITERATIONS
-            String iteratedArr = (i + 1) + ". ";
-            for (int j = 0; j < bubArr.length; j++) {
-                iteratedArr += bubArr[j] + " ";
-            }
-            System.out.println(iteratedArr);
+            printIteratedArray(bubArr, i);
 
             // COMPARES ARRAY TO SORTED ARRAY
             if (Arrays.equals(bubArr, autoSorter(autoArr))) {
@@ -81,24 +95,13 @@ public class CS2A_Group12_Lab3 {
         }
 
         // PRINTING THE SORTED OUTPUT
-        sortedArr = "The Sorted Array Elements: ";
-        for (int i = 0; i < bubArr.length; i++) {
-            sortedArr += bubArr[i] + " ";
-        }
-        System.out.println(sortedArr);
-        System.out.println("========================================================");
+        printOutputArray(bubArr);
     }
 
     // SELECTION SORT METHOD
     public static void selectionSort(int[] selArr, int[] autoArr) {
         // PRINTING GIVEN ARRAY VALUES
-        System.out.println("========================================================");
-        System.out.println("Selection Sort");
-        givenArr = "Given Array Elements: ";
-        for (int i = 0; i < selArr.length; i++) {
-            givenArr += selArr[i] + " ";
-        }
-        System.out.println(givenArr);
+        printGivenArray(selArr);
 
         // INITIALIZING VARIABLES
         int temp = Integer.MIN_VALUE;
@@ -126,16 +129,12 @@ public class CS2A_Group12_Lab3 {
             selArr[pos] = temp;
 
             // A CONDITION TO BREAK IF ARRAY REACHES THE FINAL INDEX
-            if (i == selArr.length - 1) {
-                break;
-            }
+            // if (i == selArr.length - 1) {
+            // break;
+            // }
 
             // PRINTING ARRAYS IN EACH ITERATIONS
-            String iteratedArr = (i + 1) + ". ";
-            for (int j = 0; j < selArr.length; j++) {
-                iteratedArr += selArr[j] + " ";
-            }
-            System.out.println(iteratedArr);
+            printIteratedArray(selArr, i);
 
             // COMPARES ARRAY TO SORTED ARRAY
             if (Arrays.equals(selArr, autoSorter(autoArr))) {
@@ -144,12 +143,7 @@ public class CS2A_Group12_Lab3 {
         }
 
         // PRINTING THE SORTED OUTPUT
-        sortedArr = "The Sorted Array Elements: ";
-        for (int i = 0; i < selArr.length; i++) {
-            sortedArr += selArr[i] + " ";
-        }
-        System.out.println(sortedArr);
-        System.out.println("========================================================");
+        printOutputArray(selArr);
 
     }
 
@@ -157,13 +151,7 @@ public class CS2A_Group12_Lab3 {
     public static void insertionSort(int[] insArr, int[] autoArr) {
 
         // PRINTING THE GIVEN ARRAY VALUES
-        System.out.println("========================================================");
-        System.out.println("Insertion Sort");
-        givenArr = "Given Array Elements: ";
-        for (int i = 0; i < insArr.length; i++) {
-            givenArr += insArr[i] + " ";
-        }
-        System.out.println(givenArr);
+        printGivenArray(insArr);
 
         // INITIALIZING VARIABLES
         int temp = Integer.MIN_VALUE;
@@ -181,21 +169,12 @@ public class CS2A_Group12_Lab3 {
             // A CONDITION OF i IS NOT EQUAL TO 0 THEN START PRINTING THE ARRAYS
             if (i != 0) {
                 // PRINTING ARRAYS IN EACH ITERATIONS
-                String iteratedArr = iCounter + ". ";
-                for (int j = 0; j < insArr.length; j++) {
-                    iteratedArr += insArr[j] + " ";
-                }
-                System.out.println(iteratedArr);
+                printIteratedArray(insArr, i - 1);
             }
 
             // COMPARES ARRAY TO SORTED ARRAY
             if (Arrays.equals(insArr, autoSorter(autoArr))) {
-                sortedArr = "The Sorted Array Elements: ";
-                for (int k = 0; k < insArr.length; k++) {
-                    sortedArr += insArr[k] + " ";
-                }
-                System.out.println(sortedArr);
-                System.out.println("========================================================");
+                printOutputArray(insArr);
                 break;
             }
 
