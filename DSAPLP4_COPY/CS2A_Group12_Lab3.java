@@ -245,14 +245,14 @@ public class CS2A_Group12_Lab3 {
 
         boolean elemExc = true;
         int eCounter = 0;
-        String elemStorage = "";
+
         while (elemExc) {
             try {
-                System.out.print("Enter" + size + "Array Elements: ");
+
                 for (int i = eCounter; i < size; i++) {
+                    System.out.print("Enter Array Element " + (i + 1) + ": ");
                     num[eCounter] = scanner.nextInt();
 
-                    elemStorage += num[eCounter] + " ";
                     eCounter++;
                 }
                 break;
