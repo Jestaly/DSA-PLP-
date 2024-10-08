@@ -225,7 +225,7 @@ public class CS2A_Group12_Lab3 {
                     System.out.print("Enter Array Size: ");
                     size = scanner.nextInt();
                     System.out.println("========================================================");
-                    if (size >= 4 && size <= 15) {
+                    if (size >= 5 && size <= 15) {
                         sizeExc = false;
                         break;
                     } else {
@@ -238,19 +238,21 @@ public class CS2A_Group12_Lab3 {
                     System.out.println("========================================================");
                     scanner.next();
                 }
-            } while (size < 4 || size > 15);
+            } while (size < 5 || size > 15);
         }
 
         final int[] num = new int[size];
 
         boolean elemExc = true;
         int eCounter = 0;
+        String elemStorage = "";
         while (elemExc) {
             try {
+                System.out.print("Enter" + size + "Array Elements: ");
                 for (int i = eCounter; i < size; i++) {
-                    System.out.print("Enter Element " + (i + 1) + ": ");
                     num[eCounter] = scanner.nextInt();
-                    System.out.println("========================================================");
+
+                    elemStorage += num[eCounter] + " ";
                     eCounter++;
                 }
                 break;
