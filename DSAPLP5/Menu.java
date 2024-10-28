@@ -36,10 +36,10 @@ public class Menu {
 
     public void infixToPostfix(){
         choiceBase = 1;
-        Stack<Character> stack = new Stack<>();
-
+        Stack<Character> stackLet = new Stack<>();
         // INFIX TO POSTFIX
-        String str = "A+B*C";
+        String str = "A+B*C-D";
+        //ABC*+D-
         String strTemp = "";
         for (int i = 0; i < str.length(); i++) {
             if (!(str.charAt(i) == '*' || str.charAt(i) == '/' ||
@@ -51,49 +51,65 @@ public class Menu {
             if (str.charAt(i) == '*' || str.charAt(i) == '/' ||
                     str.charAt(i) == '+' || str.charAt(i) == '-' ||
                     str.charAt(i) == '(' || str.charAt(i) == ')') {
-                if (stack.isEmpty()) {
-                    stack.push(str.charAt(i));
+                if (stackLet.isEmpty()) {
+                    stackLet.push(str.charAt(i));
                     continue;
                 }
-                if (stack.peek() == '(') {
-                    stack.push(str.charAt(i));
+                if (stackLet.peek() == '(') {
+                    stackLet.push(str.charAt(i));
                     continue;
                 }
                 if (str.charAt(i) == '(') {
-                    stack.push(str.charAt(i));
+                    stackLet.push(str.charAt(i));
                     continue;
                 }
                 if (str.charAt(i) == ')') {
-                    while (stack.peek() != '(') {
-                        strTemp += stack.pop();
+                    while (stackLet.peek() != '(') {
+                        strTemp += stackLet.pop();
                     }
-                    stack.pop();
+                    stackLet.pop();
                     continue;
                 }
-                if (str.charAt(i) == stack.peek()) {
-                    strTemp += stack.pop();
-                    stack.push(str.charAt(i));
-                    continue;
-                }
+//                if(str.charAt(i) == stackLet.peek()){
+//                    strTemp += stackLet.pop();
+//                    stackLet.push(str.charAt(i));
+//                    continue;
+//                }
+
+//                if ((str.charAt(i) == '*' || str.charAt(i) == '/') &&
+//                (stackLet.peek() != '+' || stackLet.peek() != '-')) {
+//                    stackLet.push(str.charAt(i));
+//                    continue;
+//                }
                 if ((str.charAt(i) == '*' || str.charAt(i) == '/') &&
-                        (stack.peek() == '+' || stack.peek() == '-')) {
-                    stack.push(str.charAt(i));
+                        (stackLet.peek() == '+' || stackLet.peek() == '-')) {
+                    stackLet.push(str.charAt(i));
+                    continue;
+                }else if((str.charAt(i) == '*' || str.charAt(i) == '/') &&
+                        (stackLet.peek() != '+' || stackLet.peek() != '-')){
+                    strTemp += stackLet.pop();
+                    stackLet.push(str.charAt(i));
                     continue;
                 }
                 if ((str.charAt(i) == '+' || str.charAt(i) == '-') &&
-                        (stack.peek() == '*' || stack.peek() == '/')) {
-                    strTemp += stack.pop();
-                    stack.push(str.charAt(i));
+                        (stackLet.peek() == '*' || stackLet.peek() == '/')) {
+                    strTemp += stackLet.pop();
+                    stackLet.push(str.charAt(i));
+                }else if((str.charAt(i) == '+' || str.charAt(i) == '-') &&
+                        (stackLet.peek() == str.charAt(i) || stackLet.peek() == str.charAt(i))) {
+                    strTemp += stackLet.pop();
+                    stackLet.push(str.charAt(i));
                 }
             }
         }
-        while (!stack.isEmpty()) {
-            strTemp += stack.pop();
+        while (!stackLet.isEmpty()) {
+            strTemp += stackLet.pop();
         }
         str = strTemp;
         System.out.println(str);
 
-        backToMenu();
+            backToMenu();
+
     }
     public void infixToPrefix(){
         choiceBase = 2;
