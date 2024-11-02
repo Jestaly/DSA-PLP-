@@ -39,8 +39,8 @@ public class Menu {
         Stack<Character> stackLet = new Stack<>();
         StringBuilder strTemp = new StringBuilder();
         // INFIX TO POSTFIX
-        String str = "A+B*C-D";
-        //ABC*+D-
+        String str = "A+B*C/D";
+
         for (int i = 0; i < str.length(); i++) {
             if (!(str.charAt(i) == '*' || str.charAt(i) == '/' ||
                     str.charAt(i) == '+' || str.charAt(i) == '-' ||
@@ -48,10 +48,17 @@ public class Menu {
                 strTemp.append(str.charAt(i));
                 continue;
             }
-                if (stackLet.isEmpty()) {
-                    stackLet.push(str.charAt(i));
-                    continue;
+            if (stackLet.isEmpty() || str.charAt(i) == '(' || stackLet.peek() == '(') {
+                stackLet.push(str.charAt(i));
+                continue;
+            }
+            if (str.charAt(i) == ')') {
+                while (stackLet.peek() != '(') {
+                    strTemp.append(stackLet.pop());
                 }
+                stackLet.pop();
+                continue;
+            }
             if (str.charAt(i) == '*' || str.charAt(i) == '/') {
                 while(stackLet.peek() == '*' || stackLet.peek() == '/'){
                     strTemp.append(stackLet.pop());
@@ -71,23 +78,7 @@ public class Menu {
                     }
                 }
                     stackLet.push(str.charAt(i));
-                continue;
             }
-//                if (stackLet.peek() == '(') {
-//                    stackLet.push(str.charAt(i));
-//                    continue;
-//                }
-//                if (str.charAt(i) == '(') {
-//                    stackLet.push(str.charAt(i));
-//                    continue;
-//                }
-//                if (str.charAt(i) == ')') {
-//                    while (stackLet.peek() != '(') {
-//                        strTemp.append(stackLet.pop());
-//                    }
-//                    stackLet.pop();
-//                    continue;
-//                }
         }
         while (!stackLet.isEmpty()) {
             strTemp.append(stackLet.pop());
@@ -96,11 +87,52 @@ public class Menu {
         System.out.println(str);
 
             backToMenu();
-
     }
-    public void infixToPrefix(){
-        choiceBase = 2;
+        public void infixToPrefix() {
+            Stack<Character> stackLet = new Stack<>();
+            StringBuilder strTemp = new StringBuilder();
 
+            String str = "A+B∗C";
+            str = strTemp.append(str).reverse().toString();
+            strTemp.delete(0, strTemp.length());
+
+            for (int i = 0; i < str.length(); i++) {
+                if (!(str.charAt(i) == '*' || str.charAt(i) == '/' ||
+                        str.charAt(i) == '+' || str.charAt(i) == '-' ||
+                        str.charAt(i) == '(' || str.charAt(i) == ')')) {
+                    strTemp.append(str.charAt(i));
+                    continue;
+                }
+                if (stackLet.isEmpty() || str.charAt(i) == ')' || stackLet.peek() == ')') {
+                    stackLet.push(str.charAt(i));
+                    continue;
+                }
+                if (str.charAt(i) == '(') {
+                    while (stackLet.peek() != ')') {
+                        strTemp.append(stackLet.pop());
+                    }
+                    stackLet.pop();
+                    continue;
+                }
+                if (str.charAt(i) == '*' || str.charAt(i) == '/') {
+                    stackLet.push(str.charAt(i));
+                    continue;
+                }
+                if (str.charAt(i) == '+' || str.charAt(i) == '-') {
+                    while (!stackLet.isEmpty() && (stackLet.peek() != '+' || stackLet.peek() != '-')) {
+                        strTemp.append(stackLet.pop());
+                    }
+                    stackLet.push(str.charAt(i));
+                }
+            }
+            while (!stackLet.isEmpty()) {
+                strTemp.append(stackLet.pop());
+            }
+        str = strTemp.reverse().toString();
+            str = str.replace('(', ' ').replace(')',' ').replace(" ","");
+        System.out.println(str);
+
+        backToMenu();
     }
     public void postfixToInfix(){
         choiceBase = 3;
