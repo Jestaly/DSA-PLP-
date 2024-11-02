@@ -37,75 +37,62 @@ public class Menu {
     public void infixToPostfix(){
         choiceBase = 1;
         Stack<Character> stackLet = new Stack<>();
+        StringBuilder strTemp = new StringBuilder();
         // INFIX TO POSTFIX
         String str = "A+B*C-D";
         //ABC*+D-
-        String strTemp = "";
         for (int i = 0; i < str.length(); i++) {
             if (!(str.charAt(i) == '*' || str.charAt(i) == '/' ||
                     str.charAt(i) == '+' || str.charAt(i) == '-' ||
                     str.charAt(i) == '(' || str.charAt(i) == ')')) {
-                strTemp += str.charAt(i);
+                strTemp.append(str.charAt(i));
                 continue;
             }
-            if (str.charAt(i) == '*' || str.charAt(i) == '/' ||
-                    str.charAt(i) == '+' || str.charAt(i) == '-' ||
-                    str.charAt(i) == '(' || str.charAt(i) == ')') {
                 if (stackLet.isEmpty()) {
                     stackLet.push(str.charAt(i));
                     continue;
                 }
-                if (stackLet.peek() == '(') {
-                    stackLet.push(str.charAt(i));
-                    continue;
-                }
-                if (str.charAt(i) == '(') {
-                    stackLet.push(str.charAt(i));
-                    continue;
-                }
-                if (str.charAt(i) == ')') {
-                    while (stackLet.peek() != '(') {
-                        strTemp += stackLet.pop();
+            if (str.charAt(i) == '*' || str.charAt(i) == '/') {
+                while(stackLet.peek() == '*' || stackLet.peek() == '/'){
+                    strTemp.append(stackLet.pop());
+                    if(stackLet.isEmpty()){
+                        break;
                     }
-                    stackLet.pop();
-                    continue;
                 }
-//                if(str.charAt(i) == stackLet.peek()){
-//                    strTemp += stackLet.pop();
-//                    stackLet.push(str.charAt(i));
-//                    continue;
-//                }
-
-//                if ((str.charAt(i) == '*' || str.charAt(i) == '/') &&
-//                (stackLet.peek() != '+' || stackLet.peek() != '-')) {
-//                    stackLet.push(str.charAt(i));
-//                    continue;
-//                }
-                if ((str.charAt(i) == '*' || str.charAt(i) == '/') &&
-                        (stackLet.peek() == '+' || stackLet.peek() == '-')) {
-                    stackLet.push(str.charAt(i));
-                    continue;
-                }else if((str.charAt(i) == '*' || str.charAt(i) == '/') &&
-                        (stackLet.peek() != '+' || stackLet.peek() != '-')){
-                    strTemp += stackLet.pop();
-                    stackLet.push(str.charAt(i));
-                    continue;
-                }
-                if ((str.charAt(i) == '+' || str.charAt(i) == '-') &&
-                        (stackLet.peek() == '*' || stackLet.peek() == '/')) {
-                    strTemp += stackLet.pop();
-                    stackLet.push(str.charAt(i));
-                }else if((str.charAt(i) == '+' || str.charAt(i) == '-') &&
-                        (stackLet.peek() == str.charAt(i) || stackLet.peek() == str.charAt(i))) {
-                    strTemp += stackLet.pop();
-                    stackLet.push(str.charAt(i));
-                }
+                stackLet.push(str.charAt(i));
+                continue;
             }
+            if (str.charAt(i) == '+' || str.charAt(i) == '-') {
+                while(stackLet.peek() == '*' || stackLet.peek() == '/' ||
+                        stackLet.peek() == '+' || stackLet.peek() == '-'){
+                    strTemp.append(stackLet.pop());
+                    if(stackLet.isEmpty()){
+                        break;
+                    }
+                }
+                    stackLet.push(str.charAt(i));
+                continue;
+            }
+//                if (stackLet.peek() == '(') {
+//                    stackLet.push(str.charAt(i));
+//                    continue;
+//                }
+//                if (str.charAt(i) == '(') {
+//                    stackLet.push(str.charAt(i));
+//                    continue;
+//                }
+//                if (str.charAt(i) == ')') {
+//                    while (stackLet.peek() != '(') {
+//                        strTemp.append(stackLet.pop());
+//                    }
+//                    stackLet.pop();
+//                    continue;
+//                }
         }
         while (!stackLet.isEmpty()) {
-            strTemp += stackLet.pop();
+            strTemp.append(stackLet.pop());
         }
-        str = strTemp;
+        str = strTemp.toString();
         System.out.println(str);
 
             backToMenu();
