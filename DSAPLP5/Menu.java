@@ -6,6 +6,58 @@ public class Menu {
 
     private int choiceBase;
 
+    public boolean isValidInfix(String str){
+        int numOperator = 0;
+        int numLetter = 0;
+        str = str.replace(" ","");
+
+        if(str.isEmpty()) {
+            System.out.println("No Expression Entered.");
+            return false;
+        }
+        if (!str.contains("(") && str.contains(")") || str.contains("(") && !str.contains(")")) {
+            System.out.println("Invalid Parentheses.");
+            return false;
+        }
+        for(int i = 0; i < str.length(); i++){
+            if(str.charAt(i) == '(' || str.charAt(i) == ')'){
+
+                continue;
+            }
+            if (str.charAt(i) == '*' || str.charAt(i) == '/' ||
+                    str.charAt(i) == '+' || str.charAt(i) == '-') {
+
+                if (i == str.length() - 1) {
+                    System.out.println("Operator shouldn't be in the last index.");
+                    return false;
+                }
+                if (i == 0) {
+                    System.out.println("Operator shouldn't be in the first index.");
+                    return false;
+                }
+                if((str.charAt(i + 1) == ')' || str.charAt(i + 1) == '+'  ||
+                        str.charAt(i + 1) == '-' || str.charAt(i + 1) == '*' ||
+                        str.charAt(i + 1) == '/') && i != str.length() - 1){
+                    System.out.println("Operator should be followed by an operand or opening parenthesis");
+                    return false;
+                }
+                if(str.charAt(i - 1) == '(' && i != 0){
+                    System.out.println("Operator should be preceded by an operand or closing parenthesis");
+                    return false;
+                }
+                numOperator++;
+                continue;
+            }
+            numLetter++;
+        }
+        if(numOperator == numLetter - 1){
+            return true;
+        }else{
+            System.out.println("Correct number of operators does not match with the number of letters.");
+            return false;
+        }
+    }
+
     public void backToMenu(){
         System.out.print("Back to Menu? [Y/N]: ");
         String choice = scanner.nextLine();
@@ -23,9 +75,6 @@ public class Menu {
                 case 3:
                     postfixToInfix();
                     break;
-                case 4:
-                    prefixToInfix();
-                    break;
             }
         }
         else{
@@ -38,8 +87,13 @@ public class Menu {
         choiceBase = 1;
         Stack<Character> stackLet = new Stack<>();
         StringBuilder strTemp = new StringBuilder();
+
         // INFIX TO POSTFIX
-        String str = "A+B*C/D";
+        String str = "";
+        do{
+            System.out.print("Enter Valid Expression: ");
+            str = scanner.nextLine();
+        }while (!isValidInfix(str));
 
         for (int i = 0; i < str.length(); i++) {
             if (!(str.charAt(i) == '*' || str.charAt(i) == '/' ||
@@ -84,6 +138,7 @@ public class Menu {
             strTemp.append(stackLet.pop());
         }
         str = strTemp.toString();
+        str = str.replace('(', ' ').replace(')',' ').replace(" ","");
         System.out.println(str);
 
             backToMenu();
@@ -91,8 +146,13 @@ public class Menu {
         public void infixToPrefix() {
             Stack<Character> stackLet = new Stack<>();
             StringBuilder strTemp = new StringBuilder();
+            //INFIX TO PREFIX
+            String str = "";
+            do{
+                System.out.print("Enter Valid Expression: ");
+                str = scanner.nextLine();
+            }while (!isValidInfix(str));
 
-            String str = "A+B∗C";
             str = strTemp.append(str).reverse().toString();
             strTemp.delete(0, strTemp.length());
 
@@ -166,10 +226,7 @@ public class Menu {
         }
 
     }
-    public void prefixToInfix(){
-        choiceBase = 4;
 
-    }
     public void openMenu(){
 
         while(true){
@@ -178,7 +235,6 @@ public class Menu {
             System.out.println("[1] Infix to Postfix");
             System.out.println("[2] Infix to Prefix");
             System.out.println("[3] Postfix to Infix");
-            System.out.println("[4] Prefix to Infix");
             System.out.println("[0] Stop");
             System.out.print("Enter Choice: ");
             int choice = in.nextInt();
@@ -192,9 +248,6 @@ public class Menu {
                     break;
                 case 3:
                     postfixToInfix();
-                    break;
-                case 4:
-                    prefixToInfix();
                     break;
                 case 0:
                     System.out.println("Program Stopped.");
