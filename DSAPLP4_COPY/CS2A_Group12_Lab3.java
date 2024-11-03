@@ -22,8 +22,9 @@ public class CS2A_Group12_Lab3 {
                 }
                 iCounter++;
             }
-            iCounter = 0;
         }
+        iCounter = 0;
+        iCounter = 0;
         return autoArr;
     }
 
