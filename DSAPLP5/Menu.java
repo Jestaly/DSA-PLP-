@@ -25,8 +25,8 @@ public class Menu {
         }
 
         for (int i = 0; i < str.length(); i++) {
-            if (str.charAt(i) != '*' || str.charAt(i) != '/' ||
-                    str.charAt(i) != '+' || str.charAt(i) != '-') {
+            if (str.charAt(i) != '*' && str.charAt(i) != '/' &&
+                    str.charAt(i) != '+' && str.charAt(i) != '-') {
                 if (i == str.length() - 1) {
                     System.out.println("Operand is at the last index.");
                     return false;
