@@ -18,6 +18,11 @@ public class Menu {
             System.out.println("Expression shouldn't contain parentheses.");
             return false;
         }
+        if (str.length() == 1 && (str.charAt(0) != '*' || str.charAt(0) != '/' ||
+                str.charAt(0) != '+' || str.charAt(0) != '-' ||
+                str.charAt(0) != '(' || str.charAt(0) != ')')) {
+            return true;
+        }
 
         for (int i = 0; i < str.length(); i++) {
             if (str.charAt(i) != '*' || str.charAt(i) != '/' ||
@@ -273,14 +278,27 @@ public class Menu {
     public void openMenu() {
         Scanner in = new Scanner(System.in);
         while (true) {
-            System.out.println("Menu");
-            System.out.println("[1] Infix to Postfix");
-            System.out.println("[2] Infix to Prefix");
-            System.out.println("[3] Postfix to Infix");
-            System.out.println("[0] Stop");
-            System.out.print("Enter Choice: ");
-            int choice = in.nextInt();
+            int choice;
+            while (true) {
+                try {
+                    System.out.println("Menu");
+                    System.out.println("[1] Infix to Postfix");
+                    System.out.println("[2] Infix to Prefix");
+                    System.out.println("[3] Postfix to Infix");
+                    System.out.println("[0] Stop");
+                    System.out.print("Enter Choice: ");
+                    choice = in.nextInt();
 
+                    if (choice > 3 || choice < 0) {
+                        System.out.println("Invalid Input, Try Again.");
+                        continue;
+                    }
+                    break;
+                } catch (Exception e) {
+                    System.out.println("Invalid Input, Try Again.");
+                    in.next();
+                }
+            }
             switch (choice) {
                 case 1:
                     infixToPostfix();
@@ -295,7 +313,6 @@ public class Menu {
                     System.out.println("Program Stopped.");
                     return;
             }
-            in.close();
         }
     }
 
