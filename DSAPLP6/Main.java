@@ -35,12 +35,54 @@ public class Main {
 
     }
 
-    public void showTree() {
+    public void showTree(Node node) {
 
     }
 
     public void insertNode() {
+        System.out.print("Enter value to insert: ");
+        int val = in.nextInt();
+        in.nextLine();
+        Node newNode = new Node(val);
+        if (root == null) {
+            root = newNode;
+            System.out.println(root.val);
+            return;
+        }
+        Node current = root;
+        while (newNode.val < current.val) {
+            if (current.left == null) {
+                current.left = newNode;
+                System.out.println(current.left.val);
+                return;
+            }
+            current = current.left;
+            while (newNode.val > current.val) {
+                if (current.right == null) {
+                    current.right = newNode;
+                    System.out.println(current.right.val);
+                    return;
+                }
+                current = current.right;
+            }
+        }
 
+        while (newNode.val > current.val) {
+            if (current.right == null) {
+                current.right = newNode;
+                System.out.println(current.right.val);
+                return;
+            }
+            current = current.right;
+            while (newNode.val < current.val) {
+                if (current.left == null) {
+                    current.left = newNode;
+                    System.out.println(current.left.val);
+                    return;
+                }
+                current = current.left;
+            }
+        }
     }
 
     public void deleteNode() {
@@ -80,6 +122,8 @@ public class Main {
                 break;
             case 4:
                 System.out.println("Exiting the traversal menu...");
+                System.out.println();
+                menu();
                 break;
         }
     }
@@ -106,10 +150,11 @@ public class Main {
 
         switch (choice) {
             case "S":
-                showTree();
+                showTree(root);
                 break;
             case "I":
                 insertNode();
+                menu();
                 break;
             case "D":
                 deleteNode();
@@ -126,5 +171,9 @@ public class Main {
     public static void main(String[] args) {
         Main main = new Main();
         main.menu();
+        System.out.println(main.root.val);
+        System.out.println(main.root.left.val);
+        System.out.println(main.root.left.left.val);
+        System.out.println(main.root.left.right.val);
     }
 }
