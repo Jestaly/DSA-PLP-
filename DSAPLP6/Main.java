@@ -7,10 +7,12 @@ public class Main {
 
     Node root;
 
+    // Initializes root as null..
     Main() {
         this.root = null;
     }
 
+    // Basic binary tree node class structure..
     class Node {
         Node right;
         Node left;
@@ -39,6 +41,7 @@ public class Main {
 
     }
 
+    // Inserting nodes
     public void insertNode() {
         System.out.print("Enter value to insert: ");
         int val = in.nextInt();
@@ -85,10 +88,17 @@ public class Main {
         }
     }
 
+    // Deleting nodes
     public void deleteNode() {
+        System.out.print("Enter value to delete: ");
+        int val = in.nextInt();
+        in.nextLine();
+        Node deleteNode = new Node(val);
 
+        // Bunch of deleting code here...
     }
 
+    // Menu for traversals..
     public void traverseMenu() {
         int choice = 0;
         while (true) {
@@ -128,6 +138,7 @@ public class Main {
         }
     }
 
+    // Main menu of the program..
     public void menu() {
         String choice = "";
         while (true) {
@@ -171,6 +182,8 @@ public class Main {
     public static void main(String[] args) {
         Main main = new Main();
         main.menu();
+
+        // Sample of hard coded nodes to show values.
         System.out.println(main.root.val);
         System.out.println(main.root.left.val);
         System.out.println(main.root.left.left.val);
