@@ -188,5 +188,12 @@ public class Main {
         System.out.println(main.root.left.val);
         System.out.println(main.root.left.left.val);
         System.out.println(main.root.left.right.val);
+
+        // Create a sample tree
+        // 1
+        // / \
+        // 2 3
+        // / \
+        // 4 5
     }
 }
